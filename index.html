@@ -2,137 +2,191 @@
 <html>
 
 <head>
-  <!-- Page title and external stylesheets -->
-  <title>Car Match Maker</title>
+  <!-- Page title -->
+  <title>Perfect Car Fit</title>
+  <!-- Linking Bootstrap stylesheet -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Linking custom stylesheet -->
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="shortcut icon" type="image/jpg" href="Images/logoIcon.png" />
+  <!-- Adding a shortcut icon -->
+  <link rel="icon" type="image/x-icon" href="images/logoIcon.png">
 </head>
 
 <body>
+  <!-- Main content container -->
+  <div id="contant">
 
-  <header>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-design">
-      <div class="container-fluid">
-        <!-- Logo in the navbar -->
-        <a class="navbar-brand" href="index.html"><img src="Images/logoIcon.png" alt="logo"
-            style="height: 25px; width:25px "></a>
-        <!-- Navbar toggler for responsive design -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse justify-content-center">
-          <div class="navbar-nav">
-            <a class="nav-link" aria-current="page" href="index.html">Home</a>
-            <a class="nav-link" href="match.html">Match Making</a>
-            <a class="nav-link" href="community.html">Community</a>
-            <a class="nav-link" href="about.html">About Us</a>
-            <a class="nav-link" href="contact.html">Contact Us</a>
+    <!-- Page header section -->
+    <header>
+      <!-- Navigation bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-design">
+        <div class="container-fluid">
+          <!-- Logo in the navbar -->
+          <a class="navbar-brand" href="index.html"><img src="Images/logoIcon.png" alt="logo"
+              style="height: 25px; width:25px "></a>
+          <!-- Navbar toggler for responsive design -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse justify-content-center">
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link" href="match.html">Match Making</a>
+              <a class="nav-link" href="community.html">Community</a>
+              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </div>
           </div>
         </div>
+      </nav>
+
+      <!-- Header content -->
+      <h1>Perfect Car Fit</h1>
+      <div class="h_line"></div>
+      <p class="text">Car Matchmaker</p>
+    </header>
+
+    <!-- Table section -->
+    <table>
+      <!-- Steps to find the perfect car -->
+      <table>
+        <!-- Table header -->
+        <p class="text">THREE STEPS AWAY FROM YOUR PERFECT CAR </p>
+        <thead>
+          <tr>
+            <!-- Column headers -->
+            <th><span class="text">First</span><br>COMPLETE THE QUIZ IN A SHORT TIME</th>
+            <th><i class="arrow right"></i></th>
+            <th><span class="text">Second</span> <br> COMPARE THE TOP RESULTS</th>
+            <th><i class="arrow right"></i></th>
+            <th><span class="text">Third</span> <br> BUY THE CAR AT THE BEST PRICE</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- Table data -->
+            <td>
+              <img src="Images/checkList.png" alt="Quiz Image">
+            </td>
+            <td>
+              <p class="table-text" style=font-size:25px>Our algorithm scours the database and computes a list of the 10
+                most ideal cars for you
+              </p>
+            </td>
+            <td>
+              <img src="Images/compareResults.png" alt="Compare Image">
+            </td>
+            <td>
+              <p class="table-text" style=font-size:25px>Contact the seller directly and buy the car at the lowest
+                price!</p>
+            </td>
+            <td>
+              <img src="Images/handingKey.png" alt="Buy Image">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Additional content -->
+      <h3>At FIT PERFECT CAR, our goal is to make sure that you get your perfect car <h3>
+
+          <!-- Information about car choices -->
+          <table>
+            <tbody>
+              <tr class="element">
+                <td style="width: 60%;">
+                  <p class="table-text2">We are aware that there are a wide variety of cars available today at various
+                    price
+                    points, and with so many options,
+                    it is easy to become lost! Particularly if it's their first time buying a car,
+                    a lot of first-time buyers end up regretting their choice of vehicle.</p>
+                </td>
+                <td><img src="Images/choice.png" alt="choice"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br><br>
+
+          <!-- Algorithm utilization information -->
+          <table>
+            <tbody>
+              <tr class="element">
+                <td style="width: 60%;">
+                  <p class="table-text2">
+                    We endeavor to make sure that the customer gets a car that they will love and be glad they bought
+                    and we do EXACTLY that by utilizing our algorithm which uses the results of a questionnaire to give
+                    you a list of the 10 most suitable cars based on your preferences.
+                  </p>
+                </td>
+                <td><img src="Images/list.png" alt="list"></td>
+              </tr>
+            </tbody>
+          </table>
+          <br><br>
+
+          <!-- Start the journey with a quiz -->
+          <table class="table2" style="width: 100%;">
+            <tbody>
+              <tr>
+                <td style="width: 60%;">
+                  <p class="table-text2">Start Your journey To Find The Perfect Car For You <br>
+                    Click the quiz image to start --> </p>
+                </td>
+                <td> <a href="match.html"> <img src="Images/quiz.webp" alt="quiz"></a> </td>
+              </tr>
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+  </div>
+
+  <!-- Footer section -->
+  <div id="footer">
+    <!-- Footer content -->
+    <div class="footer bg-dark">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!-- Logo and Social media icons on the left -->
+        <div class="d-flex align-items-center">
+          <!-- Logo placeholder -->
+          <div class="logo mr-2">
+            <img src="Images/logo.png" alt="Logo">
+            <p>
+              Perfect Car Fit, where your dream car awaits!
+            </p>
+            <!-- Contact information -->
+            <div class="footer-contact">
+              <p>perfectcarfit@gmail.com</p>
+              <p>+968 9123 4567</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email subscription form on the right -->
+        <div class="email-form mb-3">
+          <form action="https://httpbin.org/get" method="get">
+            <div class="input-">
+              <p> Join Our Newsletter </p>
+              <!-- Email input field -->
+              <input type="email" class="form-control" placeholder="Email" aria-label="Email"
+                aria-describedby="subscribeBtn" required> <br>
+              <!-- Subscribe button -->
+              <button class="btn btn-primary" type="submit" id="subscribeBtn">Subscribe</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </nav>
 
-    <!-- Header content -->
-    <h1>Perfect Car Fit</h1>
-    <div class="h_line"></div>
-    <p class="text">Car Matchmaker</p>
-
-  </header>
-
-  <!-- Table section -->
-  <table>
-    <!-- Table header -->
-    <p class="text">THREE STEPS AWAY FROM YOUR PERFECT CAR </p>
-    <thead>
-      <tr>
-        <!-- Column headers -->
-        <th><span class="text">First</span><br>COMPLETE THE QUIZ IN A SHORT TIME</th>
-        <th><i class="arrow right"></i></th>
-        <th><span class="text">Second</span> <br> COMPARE THE TOP RESULTS</th>
-        <th><i class="arrow right"></i></th>
-        <th><span class="text">Third</span> <br> BUY THE CAR AT THE BEST PRICE</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <!-- Table data -->
-        <td>
-          <img src="Images/checkList.png" alt="Quiz Image">
-        </td>
-        <td>
-          <p class="table-text" style=font-size:25px>Our algorithm scours the database and computes a list of the 10 most ideal cars for you
-          </p>
-        </td>
-        <td>
-          <img src="Images/compareResults.png" alt="Compare Image">
-        </td>
-        <td>
-          <p class="table-text"style=font-size:25px>Contact the seller directly and buy the car at the lowest price!</p>
-        </td>
-        <td>
-          <img src="Images/handingKey.png" alt="Buy Image">
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- Additional content -->
-  <h3>At FIT PERFECT CAR, our goal is to make sure that you get your perfect car <h3>
-
-  <!-- Another table section -->
-  <table>
-    <tbody>
-      <tr class="element">
-        <td style="width: 60%;">
-          <p class="table-text2">We are aware that there are a wide variety of cars available today at various price
-            points, and with so many options,
-            it is easy to become lost! Particularly if it's their first time buying a car,
-            a lot of first-time buyers end up regretting their choice of vehicle.</p>
-        </td>
-        <td><img src="Images/choice.png" alt="choice"></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <br><br>
-
-  <!-- Another table section -->
-  <table>
-    <tbody>
-      <tr class="element">
-        <td style="width: 60%;">
-          <p class="table-text2">
-            We endeavor to make sure that the customer gets a car that they will love and be glad they bought
-            and we do EXACTLY that by utilizing our algorithm which uses the results of a questionnaire to give
-            you a list of the 10 most suitable cars based on your preferences.
-          </p>
-        </td>
-        <td><img src="Images/list.png" alt="list"></td>
-      </tr>
-    </tbody>
-  </table>
-  <br><br>
-
-  <!-- Yet another table section -->
-  <table class="table2" style="width: 100%;">
-    <tbody>
-      <tr>
-        <td style="width: 60%;">
-          <p class="table-text2">Start Your journey To Find The Perfect Car For You <br>
-            Click the quiz image to start --> </p>
-        </td>
-        <td> <a href="match.html"> <img src="Images/quiz.webp" alt="quiz"></a> </td>
-      </tr>
-      <tr>
-      </tr>
-    </tbody>
-  </table>
+      <!-- Copyright text -->
+      <div class="container text-center py-1">
+        <p>&copy; 2023 Perfect Car Fit. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
 
 </body>
 

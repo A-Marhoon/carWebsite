@@ -1,51 +1,67 @@
 /* styles.css */
 
+/* General styles for the body */
 body {
-  background-image: url('Images/backgroundT.jpg');
+  padding-bottom: 50px; /* Adjust padding as needed */
+  background-color: rgb(75, 75, 75);
+  color: white;
+  background-image: url('Images/backgroundT.jpg'); /* Replace with your background image path */
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.footer {
-  margin-top: 100px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+/* Style for the footer */
+#footer {
+  position: relative;
+  display: block;
   width: 100%;
+  height: 100px; /* Set the desired height of the footer */
+  margin-top: 100px;
   color: white;
   text-align: center;
   font-size: 15px;
-  height: 270px;
+  right: 0;
+  left: 0;
 }
 
+/* Container for content with space for the footer */
+#content {
+  min-height: 100%;
+  margin-bottom: -100px; /* Equivalent to footer's height */
+  padding-bottom: 100px; /* Equivalent to footer's height */
+  box-sizing: border-box;
+}
+
+/* Styling for the form */
 form {
-  margin: 200px 20px; /* Adjust the margin */
-  padding: 25px;
-  border-radius: 40px;
   margin: 20px;
+  padding: 20px;
+  border-radius: 40px;
   box-shadow: 20px 40px 10px #000000;
   background: linear-gradient(to bottom, rgba(0, 64, 255, 0.2), rgb(191, 0, 255, 0.2));
   border-radius: 50px;
   box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.5);
 }
 
+/* Styles for the logo image */
 .logo img {
   max-width: 200px;
   max-height: 100px;
 }
 
+/* Styles for social media icons */
 .social-icons img {
   width: 30px;
   height: 30px;
-  margin-left: 200px;
   margin-top: 10px;
 }
 
+/* Styles for the email form */
 .email-form {
   max-width: 300px;
 }
 
+/* Styling for the navbar */
 .navbar-design {
   margin: 0 auto;
   margin-top: 20px;
@@ -67,6 +83,7 @@ form {
   box-shadow: 0px 10px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Styles for the header content */
 .header_content {
   flex-direction: column;
   align-items: center;
@@ -77,6 +94,7 @@ form {
   margin: 0 auto;
 }
 
+/* Styles for the main heading (h1) */
 h1 {
   text-align: center;
   margin: 40px;
@@ -87,28 +105,28 @@ h1 {
   background-clip: text;
   -webkit-background-clip: text;
   text-shadow: 1px 1px 1px #59278a,
-               1px 2px 1px #59278a,
-               1px 3px 1px #59278a,
-               1px 4px 1px #59278a,
-               1px 5px 1px #59278a,
-               1px 6px 1px #59278a,
-               10px 20px 10px rgba(16, 16, 16, 0.5),
-               10px 15px 10px rgba(16, 16, 16, 0.4),
-               1px 20px 30px rgba(16, 16, 16, 0.3),
-               1px 25px 50px rgba(16, 16, 16, 0.2);
+    1px 2px 1px #59278a,
+    1px 3px 1px #59278a,
+    1px 4px 1px #59278a,
+    1px 5px 1px #59278a,
+    1px 6px 1px #59278a,
+    10px 20px 10px rgba(16, 16, 16, 0.5),
+    10px 15px 10px rgba(16, 16, 16, 0.4),
+    1px 20px 30px rgba(16, 16, 16, 0.3),
+    1px 25px 50px rgba(16, 16, 16, 0.2);
   color: aliceblue;
 }
 
+/* Styles for the secondary heading (h3) */
 h3 {
   text-align: center;
-  margin: 100px;
+  margin: 130px;
   font-size: 40px;
   font-weight: 600;
   background-image: linear-gradient(to right, #462991, #29849f);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  font-size: 70px;
   font-weight: 500;
   color: #9072e1;
 }
@@ -142,11 +160,13 @@ h3 {
   -webkit-background-clip: text;
 }
 
+/* Styles for the table container */
 .table-container {
   text-align: center;
   font-size: 40px;
 }
 
+/* Styles for the table text */
 .table-text {
   text-align: center;
   margin: 30px;
@@ -160,6 +180,7 @@ h3 {
   text-shadow: 3px 2px #0808e9;
 }
 
+/* Styles for another table text */
 .table-text2 {
   text-align: center;
   margin: 30px;
@@ -173,6 +194,7 @@ h3 {
   text-shadow: 3px 2px #ffffff;
 }
 
+/* Styles for an element */
 .element {
   width: 100%;
   margin: 20px;
@@ -181,16 +203,18 @@ h3 {
   border-radius: 5px;
 }
 
-.table2 {
+/* Styles for the main table */
+#table2 {
   border-collapse: collapse;
   width: 100%;
   margin: auto;
-  border-radius: 5px;
+  border-radius: 15px;
   border-style: line;
   border-width: thick;
-  background-color: rgba(131, 67, 135, 0.3);
+  background-color: rgba(131, 67, 135, 0.7);
 }
 
+/* Styles for table header (th) */
 th {
   padding: 10px;
   text-align: center;
@@ -201,12 +225,14 @@ th {
   -webkit-background-clip: text;
 }
 
+/* Styles for table data (td) */
 td {
   padding: 65px;
   text-align: center;
   font-size: 40px;
 }
 
+/* Styles for the arrow element */
 .arrow {
   border: solid black;
   border-width: 9px 2px 3px 9px;
@@ -214,14 +240,46 @@ td {
   padding: 3px;
 }
 
+/* Styles for the right arrow */
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
 
+/* Styles for general images */
 img {
   max-width: 220px;
   height: auto;
   display: block;
   margin: auto;
 }
+
+/* Styles for the form button */
+.button-form {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #20628b;
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  border-radius: 30px;
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background: #89159b;
+}
+
+/* Styling for input and textarea */
+input,
+textarea {
+  width: calc(100% - 18px);
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #1c87c9;
+  outline: none;
+  border-radius: 30px;
+  background-color: #b8b8b8;
+}
+
