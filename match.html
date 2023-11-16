@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Include external CSS file -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Meta information for character set and viewport -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Page title -->
+  <title>Matchmaking</title>
+
+  <!-- Include Bootstrap CSS from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <!-- Favicon for the website -->
+  <link rel="shortcut icon" type="image/jpg" href="Images/logoIcon.png" />
+  
+  <!-- Internal CSS styles -->
+  <style>
+    /* Global styles for the entire body */
+    body {
+      padding-bottom: 80px;
+      background-color: rgb(91, 91, 91);
+      color: white;
+      background-image: url('Images/backgroundT.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Styles for the footer */
+    .footer {
+      padding: 10px;
+      position: absolute;
+      bottom: 1;
+      left: 0;
+      right: 0;
+      width: 100%;
+      color: white;
+      text-align: center;
+      font-size: 15px;
+      height: 270px;
+    }
+
+    /* Styles for the form */
+    form {
+      padding: 25px;
+      border-radius: 40px;
+      background: linear-gradient(to bottom, rgba(0, 64, 255, 0.4), rgb(191, 0, 255, 0.4));
+      box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Styles for the logo */
+    .logo img {
+      max-width: 200px;
+      max-height: 100px;
+    }
+
+    /* Styles for social media icons */
+    .social-icons img {
+      width: 30px;
+      height: 30px;
+      margin-left: 200px;
+    }
+
+    /* Styles for the email form */
+    .email-form {
+      max-width: 200px;
+    }
+
+    /* Styles for the navbar */
+    .navbar-design {
+      margin: 0 auto;
+      margin-top: 20px;
+      width: 100%;
+      height: auto;
+      max-width: 100rem;
+      min-height: 3rem;
+      grid-column-gap: 1rem;
+      grid-row-gap: 1rem;
+      border: 1px none var(--black);
+      background-color: var(--white);
+      border-radius: 50px;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 1.8rem;
+      padding-right: 1.2rem;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 10px 10px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Styles for the main heading (h1) */
+    h1 {
+      text-align: center;
+      margin: 40px;
+      font-size: 90px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #d1c0ff, #59278a);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      text-shadow: 1px 1px 1px #59278a,
+        1px 2px 1px #59278a,
+        1px 3px 1px #59278a,
+        1px 4px 1px #59278a,
+        1px 5px 1px #59278a,
+        1px 6px 1px #59278a,
+        10px 20px 10px rgba(16, 16, 16, 0.5),
+        10px 15px 10px rgba(16, 16, 16, 0.4),
+        1px 20px 30px rgba(16, 16, 16, 0.3),
+        1px 25px 50px rgba(16, 16, 16, 0.2);
+      color: aliceblue
+    }
+
+    /* Styles for the secondary heading (h3) */
+    h3 {
+      text-align: center;
+      margin: 130px;
+      font-size: 40px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #462991, #29849f);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      font-weight: 500;
+      color: #9072e1;
+    }
+
+    /* Styles for horizontal lines */
+    .h_line {
+      border-bottom: 6px solid rgb(38, 81, 124);
+      width: 400px;
+      margin: auto;
+      border-radius: 20px;
+    }
+
+    /* Styles for general text */
+    .text {
+      text-align: center;
+      margin: 50px;
+      font-size: 40px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #49eda6, #03a3ae);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    /* Styles for images */
+    img {
+      max-width: 220px;
+      height: auto;
+      display: block;
+      margin: auto;
+    }
+
+    /* Styles for table container */
+    .table-container {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    /* Styles for table text */
+    .table-text {
+      text-align: center;
+      margin: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 40px;
+      font-weight: 600;
+      background-image: linear-gradient(to right, #000000, #000000);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      text-shadow: 3px 2px #0808e9;
+    }
+
+    /* Styles for table cells */
+    td {
+      padding: 40px;
+      text-align: center;
+      font-size: 40px;
+      background-image: linear-gradient(to right, rgb(81, 217, 229), #55c7d1);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    /* Styles for the main table */
+    .table2 {
+      border-collapse: collapse;
+      width: 100%;
+      margin: auto;
+      border-radius: 15px;
+      border-style: line;
+      border-width: thick;
+      background-color: rgba(131, 67, 135, 0.7);
+    }
+
+    /* Styles for form button */
+    .button-form {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      background: #20628b;
+      font-size: 20px;
+      font-weight: 400;
+      color: #fff;
+      border-radius: 30px;
+    }
+
+    /* Hover effect for buttons */
+    button:hover {
+      background: #89159b;
+    }
+
+    /* Styles for an element with a background */
+    .element {
+      width: 100%;
+      margin: 20px;
+      padding: 20px;
+      background-color: rgba(35, 29, 35, 0.4);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-design">
+    <div class="container-fluid">
+      <!-- Logo in the navbar with a link to the home page -->
+      <a class="navbar-brand" href="index.html"><img src="Images/logoIcon.png" alt="logo" style="height: 25px; width:25px "></a>
+      
+      <!-- Navbar toggle button for smaller screens -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse justify-content-center">
+        <div class="navbar-nav">
+          <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          <a class="nav-link" href="match.html">Match Making</a>
+          <a class="nav-link" href="community.html">Community</a>
+          <a class="nav-link" href="about.html">About Us</a>
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <!-- Main heading -->
+    <br>
+    <h1>Your dream car is a few questions away!</h1>
+    <!-- Horizontal line for styling -->
+    <div class="h_line"></div>
+
+    <!-- Secondary heading with a description -->
+    <h3 class="text">This quiz is carefully constructed to be simple yet accurate, resulting in an enjoyable experience</h3>
+
+    <!-- Another horizontal line for styling -->
+    <div class="h_line"></div>
+    <br>
+    <!-- Table container for checkbox information -->
+    <div class="table-container">
+      <!-- Table for checkbox information -->
+      <table class="table2">
+        <tr>
+          <!-- Table headers with checkbox images -->
+          <th><img src="Images/checkbox.png" alt="checkbox"></th>
+          <th style="padding-left: 70px;"><img src="Images/time.png" alt="checkbox"></th>
+          <th><img src="Images/personal.png" alt="checkbox"></th>
+        </tr>
+        <!-- Table row with checkbox information -->
+        <tr>
+          <td>Simple checkbox responses</td>
+          <td>It takes no more than 5 minutes</td>
+          <td>Personalize car recommendations</td>
+        </tr>
+      </table>
+
+      <!-- Another horizontal line for styling -->
+      <div class="c_line"></div>
+      <br>
+      
+      <!-- Yet another horizontal line for styling -->
+      <div class="h_line"></div>
+      
+      <!-- Element with an image and a button for the quiz -->
+      <table class="element">
+        <tr>
+          <!-- Image column -->
+          <th width="38%" style="margin: 40px"><img src="Images/quiz.webp" alt="Car with advisor"></th>
+          <!-- Column with heading and quiz button -->
+          <th width="40%">
+            <h3>Start the quiz and find the car of your dreams! <button type="button" class="button-form">Take the
+                quiz</button></h3>
+          </th>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Container for reviews progress -->
+    <div class="container mt-5">
+      <!-- Secondary heading for reviews progress -->
+      <h2 class="text">Reviews Progress</h2>
+      <!-- Table for displaying reviews progress -->
+      <table class="table2">
+        <thead>
+          <!-- Table header row -->
+          <tr>
+            <th scope="col" style="text-align: center; font-size: 30px">Goal</th>
+            <th scope="col" style="text-align: center; font-size: 30px">Progress</th>
+            <th scope="col" style="text-align: center; font-size: 30px">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table body row with reviews progress information -->
+          <tr>
+            <td>1000 Positive Reviews</td>
+            <td>
+              <!-- Progress bar with a dynamic width based on the progress value -->
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar"
+                  aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:30%">20%
+                </div>
+              </div>
+            </td>
+            <td>20% Complete</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Additional spacing at the end of the content -->
+    <br><br><br>
+
+</body>
+
+</html>
