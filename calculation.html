@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfect Car Fit - Bill Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="icon" type="image/x-icon" href="images/logoIcon.png">
+  <script src="java.js"></script>
+
+    <!-- Include external CSS file -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+  <style>
+    /* Additional styles specific to the calculation page */
+    form {
+      max-width: 900px;
+      margin: auto;
+      margin-top: 50px;
+    }
+
+    input,
+    button {
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+
+
+    .form-group{
+        margin-bottom: 20px;
+      margin-top: 20px;
+    }
+
+
+
+    .result-container {
+        padding: 10px;
+        border-radius: 5px; 
+      }
+  
+
+
+      /* Add this CSS for styling the image container */
+.image-container {
+    display: flex;
+}
+
+
+  </style>
+</head>
+
+<body>
+ <!-- Navigation bar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-design">
+    <div class="container-fluid">
+      <!-- Logo in the navbar -->
+      <a class="navbar-brand" href="index.html"><img src="Images/logoIcon.png" alt="logo"
+          style="height: 25px; width:25px "></a>
+      <!-- Navbar toggler for responsive design -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse justify-content-center">
+        <div class="navbar-nav">
+          <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          <a class="nav-link" href="match.html">Match Making</a>
+          <a class="nav-link" href="community.html">Community</a>
+          <a class="nav-link" href="about.html">About Us</a>  
+          <a class="nav-link" href="contact.html">Contact Us</a>
+          <a class="nav-link" href="questionnaire.html">Questionnaire</a>
+          <a class="nav-link" href="funpage.html">Funpage</a>
+          <a class="nav-link" href="calculation.html">Calculation</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <h1 style="color:aliceblue; font-weight:bolder;">Find Your Dream Car</h1>
+
+  <div class="h_line"></div>
+
+<!-- Registration Section -->
+<div id="carFinderFormContainer" class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+
+        
+        <div class="card-body py-md-8">
+          <!-- Car Finder Form -->
+          <form id="carFinderForm">
+            <!-- Age Input -->
+            <div class="form-group">
+              <label for="age">Age (18 - 100) :</label>
+              <input type="number" class="form-control" id="age" placeholder="Enter your age" required>
+            </div>  
+  
+            <!-- Monthly Salary Input -->
+            <div class="form-group">
+              <label for="salary">Monthly Salary (OMR) :</label>
+              <input type="number" class="form-control" id="salary" placeholder="Enter your monthly salary" required>
+            </div>
+  
+            <!-- Lifestyle Input -->
+            <div class="form-group">
+              <label for="lifestyle">Lifestyle [adventure, city, desert] : </label>
+              <input type="text" class="form-control" id="lifestyle" placeholder="Enter your lifestyle" required>
+            </div>
+  
+            <!-- Preferred Car Type -->
+            <div class="form-group">
+              <label for="carType">Preferred Car Type :</label>
+              <select class="form-control" id="carType" name="carType">
+                <option value="Convertible">Convertible</option>
+                <option value="Minivan">Minivan</option>
+                <option value="sports">Sports Car</option>
+                <option value="Pickup truck">Pickup truck</option>
+                <!-- Add more options based on user preferences -->
+              </select>
+            </div>
+  
+            <!-- Financing Options -->
+            <div class="form-group">
+              <label for="financing">Financing Options :</label>
+              <select class="form-control" id="financing" name="financing">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+  
+            <!-- Buttons for Submit and Reset -->
+            <div class="d-flex flex-row align-items-center justify-content-between">
+                <button class="btn btn-primary" type="button" onclick="calculatePriceInterval()">Find Price Interval</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <br><br>
+
+  <div class="h_line"></div>
+
+
+    <!-- Container for displaying the result -->
+
+    <div id="priceResult" class="result-container"></div>
+
+
+  <!-- Footer section (similar to other pages) -->
+  <!-- ... (Similar to other pages) ... -->
+
+  <!-- Bootstrap JS (similar to other pages) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <!-- Custom JavaScript for the bill calculator -->
+  <script src="calculation.js"></script>
+</body>
+
+</html>
