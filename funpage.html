@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Page title -->
+    <title>Fun Page</title>
+    <!-- Bootstrap stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- Custom styles -->
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logoIcon.png">
+    <!-- Additional styles -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .game{
+            width: 40em;
+            height: 200px;
+            border: 2px solid white;
+            margin: auto;
+        }
+        #character{
+            width: 20px;
+            height: 40px;
+            background-image: url("Images/runMan1.png");
+            background-repeat: no-repeat;
+            position:relative;
+            top: 160px;
+        }
+        .animate{
+            animation: jump 0.3s linear;
+        }
+        @keyframes jump{
+            0%{top: 150px;}
+            30%{top: 100px;}
+            70%{top: 100px;}
+            100%{top: 150px;}
+        }
+
+        #block{
+            
+            width: 30px;
+            height: 30px;
+            background-image: url("Images/yellow_car.png");
+            background-repeat: no-repeat;
+            position: relative;
+            top: 130px;
+            left: 500px;
+            animation: block 1s infinite linear;
+        }
+        @keyframes block{
+            0%{left: 500px}
+            100%{left: -20px}
+        }
+        p{
+            text-align: center;
+        }
+        button{
+            color: #faaadf;
+            background-color: black;
+            width: 3em;
+            
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main content container -->
+    <div id="contant">
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-design">
+      <div class="container-fluid">
+        <!-- Logo in the navbar -->
+        <a class="navbar-brand" href="index.html"><img src="Images/logoIcon.png" alt="logo"
+            style="height: 25px; width:25px "></a>
+        <!-- Navbar toggler for responsive design -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse justify-content-center">
+          <div class="navbar-nav">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="match.html">Match Making</a>
+            <a class="nav-link" href="community.html">Community</a>
+            <a class="nav-link" href="about.html">About Us</a>  
+            <a class="nav-link" href="contact.html">Contact Us</a>
+            <a class="nav-link" href="questionnaire.html">Questionnaire</a>
+            <a class="nav-link" href="funpage.html">Funpage</a>
+            <a class="nav-link" href="calculation.html">Calculation</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Content of Community -->
+    <div>
+        <!-- Head -->
+        <div class="image-container">
+          <h1 style="color:aliceblue; font-weight:bolder;">Have Some Fun!</h1> <br>
+          <div class="h_line"></div>
+          <br>
+          <div class="text" style="background-image: linear-gradient(to right, #e6defc, #faaadf);">Jump to avoid the car<br>
+        click the buttun or press <kbd>space</kbd> in your keyboard</button></div>
+        </div>
+
+
+    <div class="game">
+        <div id="character"></div>
+        <div id="block"></div>
+    </div>
+    
+
+    
+    <p class="text" style="background-image: linear-gradient(to right, #e6defc, #faaadf);"><button id="btnJ" onclick="jump()"> Jump </button>
+        <br>
+        Score: <span id="scoreSpan"></span></p>
+
+
+
+        <!-- Footer Section -->
+  <div id="footer">
+    <div class="footer bg-dark">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!-- Logo and Social Media Icons on the left -->
+        <div class="d-flex align-items-center">
+          <!-- Logo placeholder -->
+          <div class="logo mr-2">
+            <img src="Images/logo.png" alt="Logo">
+            <p>
+              Perfect Car Fit, where your dream car awaits!
+            </p>
+            <!-- Contact Information -->
+            <div class="footer-contact">
+              <p>perfectcarfit@gmail.com</p>
+              <p>+968 9123 4567</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email form on the right -->
+        <div class="email-form mb-3">
+          <form action="mailto:s133996@gmail.com" method="post">
+            <div class="input-">
+              <!-- Newsletter Subscription -->
+              <p> Join Our Newsletter </p>
+              <input type="email" class="form-control" placeholder="Email" aria-label="Email"
+                aria-describedby="subscribeBtn" required> <br>
+              <!-- Subscribe Button -->
+              <button class="btn btn-primary" type="submit" id="subscribeBtn">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Copyright Information -->
+      <div class="container text-center py-1">
+        <p>&copy; 2023 Perfect Car Fit. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</body>
+<script>
+    //scripts for the game
+    var character = document.getElementById("character");
+    var block = document.getElementById("block");
+    var counter=0;
+    function jump(){
+        if(character.classList == "animate"){return}
+        character.classList.add("animate");
+        setTimeout(function(){
+            character.classList.remove("animate");
+        },300);
+    }
+
+    // to check if you lose or not
+    var checkDead = setInterval(function() {
+        let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+        let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+        if(blockLeft<20 && blockLeft>-20 && characterTop>=130){
+            block.style.animation = "none";
+            alert("Game Over. score: "+Math.floor(counter/100));
+            counter=0;
+            block.style.animation = "block 1s infinite linear";
+        }else{
+            counter++;
+            document.getElementById("scoreSpan").innerHTML = Math.floor(counter/100);
+        }
+    }, 10);
+
+
+
+    // press space in keyboard will Jump 
+    //the key Code for space is 32
+    document.onkeydown = function (e) {
+        var keyCode = e.keyCode;
+        if(keyCode == 32) {
+            jump();
+        }
+    };
+    btnZ.onclick = clicked;
+</script>
+</html>
