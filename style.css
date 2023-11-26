@@ -36,7 +36,6 @@ body {
 form {
   margin: 20px;
   padding: 20px;
-  border-radius: 40px;
   box-shadow: 20px 40px 10px #000000;
   background: linear-gradient(to bottom, rgba(0, 64, 255, 0.4), rgb(191, 0, 255, 0.4));
   border-radius: 50px;
@@ -225,12 +224,16 @@ th {
   -webkit-background-clip: text;
 }
 
+
+
 /* Styles for table data (td) */
 td {
   padding: 65px;
   text-align: center;
   font-size: 40px;
 }
+
+
 
 /* Styles for the arrow element */
 .arrow {
