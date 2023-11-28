@@ -27,9 +27,9 @@
             margin: auto;
         }
         #character{
-            width: 20px;
+            width: 40px;
             height: 40px;
-            background-image: url("Images/runMan1.png");
+            background-image: url("Images/run.png");
             background-repeat: no-repeat;
             position:relative;
             top: 160px;
@@ -65,7 +65,7 @@
         button{
             color: #faaadf;
             background-color: black;
-            width: 3em;
+            width: 5em;
             
         }
 
@@ -111,7 +111,7 @@
           <div class="h_line"></div>
           <br>
           <div class="text" style="background-image: linear-gradient(to right, #e6defc, #faaadf);">Jump to avoid the car<br>
-        click the buttun or press <kbd>space</kbd> in your keyboard</button></div>
+        click the jump buttun or press <kbd>J</kbd> in your keyboard</button></div>
         </div>
 
 
@@ -122,9 +122,15 @@
     
 
     
-    <p class="text" style="background-image: linear-gradient(to right, #e6defc, #faaadf);"><button id="btnJ" onclick="jump()"> Jump </button>
+    <p class="text" style="background-image: linear-gradient(to right, #e6defc, #faaadf);">
+      <button id="btnStart" onclick="startGame()">Start Game</button>
+      <button id="btnJ" onclick="jump()"> Jump </button>
         <br>
-        Score: <span id="scoreSpan"></span></p>
+        Timer: <span id="timerSpan"></span> seconds
+        <br>
+        <div class="text" id="score">Score: <span id="scoreSpan"></span></div>
+        <br>
+    </p>
 
 
 
@@ -181,23 +187,61 @@
     var character = document.getElementById("character");
     var block = document.getElementById("block");
     var counter=0;
+    var gameRunning = false;
+
     function jump(){
-        if(character.classList == "animate"){return}
+        if(character.classList == "animate" ){return}
         character.classList.add("animate");
         setTimeout(function(){
             character.classList.remove("animate");
         },300);
     }
 
+    // start game Function
+    function startGame() {
+            // Wait for 2 seconds before starting the game
+            //display countdown befor start the game
+            var countdown = 2;
+            var countdownInterval = setInterval(function () {
+                document.getElementById("timerSpan").innerHTML = countdown;
+                countdown--;
+                if (countdown < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("timerSpan").innerHTML = "";
+                    gameRunning = true;
+                    counter = 0;
+                    block.style.animation = "block 1s infinite linear";
+                    
+                    document.getElementById("score").innerHTML = "Score: <span id= scoreSpan></span>";
+                    updateScore();
+                }
+            }, 1000);
+
+
+              /*
+            setTimeout(function () {
+                gameRunning = true;
+                counter = 0;
+                block.style.animation = "block 1s infinite linear";
+                document.getElementById("scoreSpan").innerHTML = "0";
+            }, 1000);*/
+      }
+
     // to check if you lose or not
     var checkDead = setInterval(function() {
         let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
         let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+        
+        //game over
         if(blockLeft<20 && blockLeft>-20 && characterTop>=130){
-            block.style.animation = "none";
+            
+          gameRunning = false;
+          
+          block.style.animation = "none";
             alert("Game Over. score: "+Math.floor(counter/100));
-            counter=0;
-            block.style.animation = "block 1s infinite linear";
+            
+            document.getElementById("score").innerHTML = "Score: ";
+            
         }else{
             counter++;
             document.getElementById("scoreSpan").innerHTML = Math.floor(counter/100);
@@ -206,11 +250,12 @@
 
 
 
-    // press space in keyboard will Jump 
+    // press j or space in keyboard will Jump 
+    //the key Code for j is 74
     //the key Code for space is 32
     document.onkeydown = function (e) {
         var keyCode = e.keyCode;
-        if(keyCode == 32) {
+        if(keyCode == 74 || keyCode==32) {
             jump();
         }
     };
