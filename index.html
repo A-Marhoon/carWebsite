@@ -222,18 +222,16 @@
           </table>
           
 
-
-          <!-- frequantly asked questions -->
-          <h3  style="font-size: 50px; color:rgb(168, 210, 255);">Frequently Asked Questions<br> (FAQs) <h3>
-
+          
+  <!-- frequantly asked questions -->
+  <h3  style="font-size: 50px; color:rgb(168, 210, 255);">Frequently Asked Questions<br> (FAQs) <h3>
           
         
-
+    <div id="faqContainer"></div>
     <!-- Table section -->
     <table>
       <!-- Table header -->
       <thead>
-
         <tr class="element">
           <!-- Column headers -->
           <th>Is the quiz free to take?</th>
@@ -259,6 +257,19 @@
       </tbody>
     </table>
     <br><br>
+  
+    <script>
+      
+      window.onload = function () {
+        renderFAQTable();
+      };
+  
+      
+    </script>
+
+
+
+  
 
           <!-- Start the journey with a quiz -->
           <table class="table2" style="width: 100%;">
@@ -341,7 +352,7 @@
   <div id="gallery">
     <img class="photo visible" src="Images/blackCar.jpg" alt="Photo 1" style="border-radius: 10px;">
     <img class="photo " src="Images/Car2.jpg" alt="Photo 2" style="border-radius: 10px;">
-    <img class="photo " src="/Images/Car4.jpg" alt="Photo 3" style="border-radius: 10px;">
+    <img class="photo " src="Images/Car4.jpg" alt="Photo 3" style="border-radius: 10px;">
   </div>
   
   <script>
