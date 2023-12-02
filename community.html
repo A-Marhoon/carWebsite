@@ -17,9 +17,6 @@
   <!-- Additional styles -->
   <link rel="stylesheet" type="text/css" href="style.css">
 
-  <script src="java.js"></script>
-  
-
   <style>
     /* Additional styles for images, lines, and table data */
     img {
@@ -36,10 +33,67 @@
       border-radius: 20px;
     }
 
+    #td {
+      font-size: 28px;
+      border: none;
+    }
+
     td {
-      padding: 30px;
+      border: 3px dotted #b725b0;
+      border-radius: 20px;
+      padding: 8px;
       text-align: center;
       font-size: 28px;
+    }
+
+    .tableHeading {
+      border: 3px dotted #254eb7;
+      border-radius: 20px;
+      padding: 8px;
+      text-align: center;
+    }
+
+    /* The container must be positioned relative: */
+    .custom-select {
+      font-family: Arial;
+    }
+
+    .select-selected {
+      background-color: DodgerBlue;
+    }
+
+    /* Style items (options): */
+    .select-items {
+      position: absolute;
+      background-color: DodgerBlue;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 99;
+    }
+
+    .action-buttons button {
+      padding: 6px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      /* Green */
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .action-buttons button:hover {
+      background-color: #45a049;
+    }
+
+    .action-buttons button.remove {
+      background-color: #f44336;
+      /* Red */
+    }
+
+    .action-buttons button.remove:hover {
+      background-color: #d32f2f;
     }
   </style>
 </head>
@@ -64,7 +118,7 @@
             <a class="nav-link" aria-current="page" href="index.html">Home</a>
             <a class="nav-link" href="match.html">Match Making</a>
             <a class="nav-link" href="community.html">Community</a>
-            <a class="nav-link" href="about.html">About Us</a>  
+            <a class="nav-link" href="about.html">About Us</a>
             <a class="nav-link" href="contact.html">Contact Us</a>
             <a class="nav-link" href="questionnaire.html">Questionnaire</a>
             <a class="nav-link" href="funpage.html">Funpage</a>
@@ -74,14 +128,13 @@
       </div>
     </nav>
 
-
     <!-- Community Content Section -->
     <div>
       <!-- Community Head -->
       <h1 style="color:aliceblue; font-weight:bolder;">JOIN THE PERFECT CAR FIT COMMUNITY</h1> <br>
       <div class="h_line"></div>
       <br>
-      <div class="text">Welcome to the heart of Perfect Car Fit—our vibrant and diverse community of car enthusiasts,
+      <div class="text">Welcome to the heart of Perfect Car Fit our vibrant and diverse community of car enthusiasts,
         dreamers, and those seeking their perfect ride! We believe in the power of community, and here at Perfect Car
         Fit, we've created a space where your passion for cars can thrive.</div>
     </div>
@@ -101,13 +154,16 @@
         </tr>
         <tr>
           <!-- Community Offerings Descriptions -->
-          <td>Engage in lively conversations with fellow community members. Whether you want to share your latest road
+          <td id="td">Engage in lively conversations with fellow community members. Whether you want to share your
+            latest road
             trip adventures, seek advice on car maintenance, or discuss the latest trends in the automotive world, our
             forums are the perfect place to connect.</td>
-          <td>Share your car journey with the community! We encourage you to tell your story—how you found your dream
+          <td id="td">Share your car journey with the community! We encourage you to tell your story—how you found your
+            dream
             car, your favorite road trips, and the unique features that make your vehicle special. Your experiences
             could inspire and guide others on their quest for the perfect car.</td>
-          <td>Become a part of a knowledge-sharing hub. Share your expertise or learn from others about car maintenance
+          <td id="td">Become a part of a knowledge-sharing hub. Share your expertise or learn from others about car
+            maintenance
             tips, DIY modifications, and insider knowledge about the car-buying process. Our community is a valuable
             resource for expanding your car-related know-how.</td>
         </tr>
@@ -136,26 +192,21 @@
                 enthusiasts worldwide.</p>
             </th>
           </tr>
-          <tr>
-            <!-- Image for Community Joining -->
-            <td width="100%"><img src="Images/car_community.png" alt="Join us" style="border-radius: 20px;"> </td>
-          </tr>
+
         </table>
       </div>
     </div>
   </div>
 
-
-
   <!-- Registration Section -->
-  <div class="container" >
+  <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-11">
         <h3 class="card-title text-center">Join The Community</h3>
-        <div class="card-body py-md-8" >
+        <div class="card-body py-md-8">
           <!-- Registration Form -->
-          <form action="https://httpbin.org/get" method="get" >
-            <div class="form-group" >
+          <form action="https://httpbin.org/get" method="get">
+            <div class="form-group">
               <input type="text" class="form-control" id="name" placeholder="Name">
             </div>
 
@@ -180,56 +231,179 @@
     </div>
   </div>
   </div>
+  </div> <br><br>
+
+  <!-- Image for Community Joining -->
+  <img src="Images/car_community.png" alt="Join us" style="border-radius: 20px;">
+
+  <div class="container">
+    <!-- Car Information Table -->
+    <h3 class="card-title text-center">Add Something to the Community</h3>
+    <form id="carReviewForm">
+      <br>
+      <input type="text" id="username" class="form-control" placeholder="Username" required>
+
+      <input type="text" id="carName" class="form-control" placeholder="Car Name" required>
+
+      <input type="text" id="carYear" class="form-control" placeholder="Car Model Year" required>
+
+      <textarea id="description" class="form-control" placeholder="Description" required></textarea>
+
+      <label for="carImage">Car Image (Optional):</label>
+      <input type="file" class="form-control" id="carImage" placeholder="Car Image (Optional)">
+
+      <label for="type">Type:</label>
+      <div class="custom-select" style="width:200px;">
+        <select id="type" required>
+          <option value="review">Review</option>
+          <option value="guide">Guide</option>
+          <option value="tips">Tips</option>
+        </select>
+      </div>
+      <br>
+      <button class="btn btn-primary" type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <br><br>
+
+    <form id="searchForm">
+      <label for="searchCarName" style="padding: 10px; text-align: center; font-size: 40px;">Search by Car Name:</label>
+      <input class="form-control" type="text" id="searchCarName" placeholder="Car Name">
+      <button class="btn btn-primary" type="button" onclick="searchCar()">Search</button>
+    </form>
   </div>
 
-
-  <!-- To add review -->
-
-  <div class="container" >
-    <div class="row justify-content-center">
-      <div class="col-md-11">
-        <h3 class="card-title text-center">Community Reviews</h3>
-        <div class="card-body py-md-8" >
-          <!-- Form for users to submit reviews -->
-            <form id="reviewForm">
-              <label for="userName">Your Name:</label>
-              <input type="text" id="userName" name="userName" required>
-              
-              <label for="userReview">Your Review:</label>
-              <textarea id="userReview" name="userReview" required></textarea>
-              
-              <button class="btn btn-primary" type="button" onclick="submitReview()">Submit Review</button>
-            </form>
-
-        </div>
-      </div>
-    </div>
-  </div>      
-
-<!-- Table to display reviews -->
-<table id="reviewTable">
+  <table id="carTable" style="margin: 40px">
     <thead>
-        <tr>
-            <th>Name</th>
-            <th>Review</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Khalid</td>
-            <td>Excellent service! I found my dream car quickly.</td>
-        </tr>
-
-        <tr>
-          <td>Omar Said</td>
-          <td>Love the website! Easy to use and very informative.</td>
+      <tr>
+        <th class="tableHeading">Username</th>
+        <th class="tableHeading">Car Name</th>
+        <th class="tableHeading">Car Model Year</th>
+        <th class="tableHeading">Description</th>
+        <th class="tableHeading">Type</th>
+        <th class="tableHeading">Car Image</th>
+        <th class="tableHeading">Upvotes</th>
+        <th class="tableHeading">Downvotes</th>
+        <th class="tableHeading">Action</th>
       </tr>
-        <!-- Rows dynamically added  -->
+    </thead>
+    <tbody id="tableBody">
+      <!-- Table rows will be dynamically added here -->
     </tbody>
-</table>
+  </table>
 
+  <script>
+    // Array to store car reviews
+    // Sample reviews with different types
+    const carReviews = [
+  { username: 'CarEnthusiast1', carName: 'Tesla Model S', carYear: '2022', description: 'Impressed with the acceleration and cutting-edge technology!', type: 'review', carImage: null, upvotes: 3, downvotes: 0 },
+  { username: 'DailyDriver', carName: 'Toyota Camry', carYear: '2021', description: 'Reliable daily driver with great fuel efficiency.', type: 'review', carImage: null, upvotes: 0, downvotes: 2 },
+  { username: 'DIYCarExpert', carName: 'Honda Civic', carYear: '2020', description: 'Essential guide to DIY car maintenance for your Civic.', type: 'guide', carImage: null, upvotes: 0, downvotes: 0 },
+  { username: 'FuelEfficiencyPro', carName: 'Ford Fusion Hybrid', carYear: '2019', description: 'Top tips for maximizing fuel efficiency in your Fusion Hybrid.', type: 'tips', carImage: null, upvotes: 1, downvotes: 0 },
+  { username: 'AutoJournalist', carName: 'Chevrolet Malibu', carYear: '2018', description: 'In-depth review highlighting the pros and cons of the Malibu.', type: 'review', carImage: null, upvotes: 0, downvotes: 0 },
+  { username: 'FirstTimeBuyer', carName: 'Subaru Outback', carYear: '2017', description: 'Helpful guide for first-time buyers looking at the Subaru Outback.', type: 'guide', carImage: null, upvotes: 0, downvotes: 0 },
+];
 
+     // Function to handle form submission
+  function submitForm() {
+    // Retrieve values from form elements
+    const username = document.getElementById('username').value;
+    const carName = document.getElementById('carName').value;
+    const carYear = document.getElementById('carYear').value;
+    const description = document.getElementById('description').value;
+    const type = document.getElementById('type').value;
+    const carImage = document.getElementById('carImage').files[0];
 
+    // Check if required fields are filled
+    if (!username || !carName || !carYear || !description) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // Create a new review object
+    const newReview = { username, carName, carYear, description, type, carImage, upvotes: 0, downvotes: 0, hasVoted: false };
+    
+    // Add the new review to the array
+    carReviews.push(newReview);
+
+    // Update the table with the new data
+    updateTable();
+  }
+
+  // Function to remove a review at a given index
+  function removeReview(index) {
+    carReviews.splice(index, 1);
+    // Update the table with the modified data
+    updateTable();
+  }
+
+  // Function to handle upvoting a review
+  function upvote(index) {
+    if (!carReviews[index].hasVoted) {
+      carReviews[index].upvotes++;
+      carReviews[index].hasVoted = true;
+      // Update the table with the modified data
+      updateTable();
+    }
+  }
+
+  // Function to handle downvoting a review
+  function downvote(index) {
+    if (!carReviews[index].hasVoted) {
+      carReviews[index].downvotes++;
+      carReviews[index].hasVoted = true;
+      // Update the table with the modified data
+      updateTable();
+    }
+  }
+
+  // Function to search for a car in the reviews
+  function searchCar() {
+    const searchCarName = document.getElementById('searchCarName').value.toLowerCase();
+    // Filter reviews based on the entered car name
+    const searchResults = carReviews.filter(review => review.carName.toLowerCase().includes(searchCarName));
+    // Update the table with the search results
+    updateTable(searchResults);
+  }
+
+  // Function to update the table with the provided data
+  function updateTable(data = carReviews) {
+    // Get the table body element
+    const tableBody = document.getElementById('tableBody');
+    // Clear the existing table
+    tableBody.innerHTML = '';
+
+    // Sort the data based on upvotes and downvotes
+    data.sort((a, b) => (b.upvotes - b.downvotes) - (a.upvotes - a.downvotes));
+
+    // Iterate through the data and create rows in the table
+    data.forEach((review, index) => {
+      const row = document.createElement('tr');
+      // Populate the row with review data
+      row.innerHTML = `
+        <td>${review.username}</td>
+        <td>${review.carName}</td>
+        <td>${review.carYear}</td>
+        <td>${review.description}</td>
+        <td>${review.type}</td>
+        <td>${review.carImage ? `<img src="${URL.createObjectURL(review.carImage)}" alt="Car Image" style="max-width: 100px; max-height: 100px;">` : 'N/A'}</td>
+        <td>${review.upvotes}</td>
+        <td>${review.downvotes}</td>
+        <td>
+          <button style="background-color: rgba(4, 234, 212, 0.8);" onclick="upvote(${index})">Upvote</button>
+          <button style="background-color: rgba(227, 4, 234, 0.8);" onclick="downvote(${index})">Downvote</button>
+          <button style="background-color: #f44336;" onclick="removeReview(${index})">Remove</button>
+        </td>
+      `;
+      // Append the row to the table
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Initial table update when the script is executed
+  updateTable();
+</script>
+  </div>
 
 
   <!-- Footer Section -->
@@ -279,37 +453,5 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 </body>
-<script>
-  
-
-// Function to submit a review
-function submitReview() {
-    // Get values from the form
-    const userName = document.getElementById('userName').value;
-    const userReview = document.getElementById('userReview').value;
-
-    // Validate that both fields are filled
-    if (!userName || !userReview) {
-        alert('Please fill in both your name and review.');
-        return;
-    }
-
-    // Create a new row for the table
-    const reviewTable = document.getElementById('reviewTable').getElementsByTagName('tbody')[0];
-    const newRow = reviewTable.insertRow();
-
-    // Insert cells for name and review
-    const nameCell = newRow.insertCell(0);
-    const reviewCell = newRow.insertCell(1);
-
-    // Populate the cells with user input
-    nameCell.textContent = userName;
-    reviewCell.textContent = userReview;
-
-    // Clear the form
-    document.getElementById('reviewForm').reset();
-}
-
-</script>
 
 </html>
