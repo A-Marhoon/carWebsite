@@ -182,6 +182,47 @@
   </div>
   </div>
 
+
+  <!-- To add review -->
+
+  <div class="container" >
+    <div class="row justify-content-center">
+      <div class="col-md-11">
+        <h3 class="card-title text-center">Community Reviews</h3>
+        <div class="card-body py-md-8" >
+          <!-- Form for users to submit reviews -->
+            <form id="reviewForm">
+              <label for="userName">Your Name:</label>
+              <input type="text" id="userName" name="userName" required>
+              
+              <label for="userReview">Your Review:</label>
+              <textarea id="userReview" name="userReview" required></textarea>
+              
+              <button class="btn btn-primary" type="button" onclick="submitReview()">Submit Review</button>
+            </form>
+
+        </div>
+      </div>
+    </div>
+  </div>      
+
+<!-- Table to display reviews -->
+<table id="reviewTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Review</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Rows dynamically added  -->
+    </tbody>
+</table>
+
+
+
+
+
   <!-- Footer Section -->
   <div id="footer">
     <div class="footer bg-dark">
@@ -229,5 +270,37 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 </body>
+<script>
+  
+
+// Function to submit a review
+function submitReview() {
+    // Get values from the form
+    const userName = document.getElementById('userName').value;
+    const userReview = document.getElementById('userReview').value;
+
+    // Validate that both fields are filled
+    if (!userName || !userReview) {
+        alert('Please fill in both your name and review.');
+        return;
+    }
+
+    // Create a new row for the table
+    const reviewTable = document.getElementById('reviewTable').getElementsByTagName('tbody')[0];
+    const newRow = reviewTable.insertRow();
+
+    // Insert cells for name and review
+    const nameCell = newRow.insertCell(0);
+    const reviewCell = newRow.insertCell(1);
+
+    // Populate the cells with user input
+    nameCell.textContent = userName;
+    reviewCell.textContent = userReview;
+
+    // Clear the form
+    document.getElementById('reviewForm').reset();
+}
+
+</script>
 
 </html>
