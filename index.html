@@ -15,33 +15,11 @@
 
 
   <style>
-
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
     }
-
-    td {
-      text-align: center;
-      padding: 20px;
-      opacity: 0;
-      animation: fadeIn 4s forwards; /* Animation duration: 2 seconds */
-    }
-
-    th {
-      text-align: center;
-      padding: 20px;
-      opacity: 0;
-      animation: fadeIn 2s forwards; /* Animation duration: 2 seconds */
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
 
 
 
@@ -52,7 +30,8 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 50px; /* Adjust the height as needed */
+      height: 50px;
+      /* Adjust the height as needed */
       border-radius: 30px;
       background-color: #262626;
       color: purple;
@@ -62,8 +41,10 @@
       font-weight: bolder;
       white-space: nowrap;
       z-index: 999;
-      overflow: hidden; /* Hide overflowing content */
-      animation: slide 20s linear infinite; /* Adjust the animation duration as needed */
+      overflow: hidden;
+      /* Hide overflowing content */
+      animation: slide 20s linear infinite;
+      /* Adjust the animation duration as needed */
     }
 
     /* Keyframe animation for sliding effect */
@@ -71,37 +52,45 @@
       0% {
         transform: translateX(100%);
       }
+
       100% {
         transform: translateX(-100%);
       }
     }
 
     #gallery {
-      max-width: 800px; /* Adjust the max-width as needed */
-      height: 600px; /* Set a fixed height for the gallery */
+      max-width: 800px;
+      /* Adjust the max-width as needed */
+      height: 600px;
+      /* Set a fixed height for the gallery */
       margin: 20px auto;
       overflow: hidden;
       position: relative;
     }
 
     .photo {
-      width: 100%; /* Occupy the entire width of the container */
-      height: 100%; /* Occupy the entire height of the container */
-      object-fit: contain; /* Ensure the entire image is visible without cropping */
-      max-width: none; /* Remove the maximum width constraint */
-      max-height: none; /* Remove the maximum height constraint */
+      width: 100%;
+      /* Occupy the entire width of the container */
+      height: 100%;
+      /* Occupy the entire height of the container */
+      object-fit: contain;
+      /* Ensure the entire image is visible without cropping */
+      max-width: none;
+      /* Remove the maximum width constraint */
+      max-height: none;
+      /* Remove the maximum height constraint */
       position: absolute;
-      opacity: 0; /* Initially set opacity to 0 */
+      opacity: 0;
+      /* Initially set opacity to 0 */
       border-radius: 10px;
-      transition: opacity 1s ease-in-out; /* Add a smooth transition for the opacity property */
+      transition: opacity 1s ease-in-out;
+      /* Add a smooth transition for the opacity property */
     }
 
     .photo.visible {
-      opacity: 1; /* Make the visible image fully opaque */
+      opacity: 1;
+      /* Make the visible image fully opaque */
     }
-
-
-
   </style>
 </head>
 
@@ -128,11 +117,12 @@
               <a class="nav-link" aria-current="page" href="index.html">Home</a>
               <a class="nav-link" href="match.html">Match Making</a>
               <a class="nav-link" href="community.html">Community</a>
-              <a class="nav-link" href="about.html">About Us</a>  
+              <a class="nav-link" href="about.html">About Us</a>
               <a class="nav-link" href="contact.html">Contact Us</a>
               <a class="nav-link" href="questionnaire.html">Questionnaire</a>
               <a class="nav-link" href="funpage.html">Funpage</a>
               <a class="nav-link" href="calculation.html">Calculation</a>
+              <a class="nav-link" href="calculation_Angular.html">Calculation-Angular</a>
             </div>
           </div>
         </div>
@@ -146,154 +136,159 @@
 
     <!-- Table section -->
     <table>
-        <!-- Table header -->
-        <p class="text">THREE STEPS AWAY FROM YOUR PERFECT CAR </p>
-        <thead>
-          <tr>
-            <!-- Column headers -->
-            <th><span class="text">First</span><br>COMPLETE THE QUIZ IN A SHORT TIME</th>
-            <th><i class="arrow right"></i></th>
-            <th><span class="text">Second</span> <br> COMPARE THE TOP RESULTS</th>
-            <th><i class="arrow right"></i></th>
-            <th><span class="text">Third</span> <br> BUY THE CAR AT THE BEST PRICE</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <!-- Table data -->
-            <td>
-              <img src="Images/checkList.png" alt="Quiz Image">
-            </td>
-            <td>
-              <p class="table-text" style=font-size:25px>Our algorithm scours the database and computes a list of the 10
-                most ideal cars for you
-              </p>
-            </td>
-            <td>
-              <img src="Images/compareResults.png" alt="Compare Image">
-            </td>
-            <td>
-              <p class="table-text" style=font-size:25px>Contact the seller directly and buy the car at the lowest
-                price!</p>
-            </td>
-            <td>
-              <img src="Images/handingKey.png" alt="Buy Image">
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-
-      <h3>At FIT PERFECT CAR, our goal is to make sure that you get your perfect car <h3>
-
-          <!-- Information about car choices -->
-          <table>
-            <tbody>
-              <tr class="element">
-                <td style="width: 60%;">
-                  <p class="table-text2">We are aware that there are a wide variety of cars available today at various
-                    price
-                    points, and with so many options,
-                    it is easy to become lost! Particularly if it's their first time buying a car,
-                    a lot of first-time buyers end up regretting their choice of vehicle.</p>
-                </td>
-                <td><img src="Images/choice.png" alt="choice"></td>
-              </tr>
-            </tbody>
-          </table>
-
-          <br><br>
-
-          <!-- Algorithm utilization information -->
-          <table>
-            <tbody>
-              <tr class="element">
-                <td style="width: 60%;">
-                  <p class="table-text2">
-                    We endeavor to make sure that the customer gets a car that they will love and be glad they bought
-                    and we do EXACTLY that by utilizing our algorithm which uses the results of a questionnaire to give
-                    you a list of the 10 most suitable cars based on your preferences.
-                  </p>
-                </td>
-                <td><img src="Images/list.png" alt="list"></td>
-              </tr>
-            </tbody>
-          </table>
-          
-
-          
-  <!-- frequantly asked questions -->
-  <h3  style="font-size: 50px; color:rgb(168, 210, 255);">Frequently Asked Questions<br> (FAQs) <h3>
-          
-        
-    <div id="faqContainer"></div>
-    <!-- Table section -->
-    <table>
       <!-- Table header -->
+      <p class="text">THREE STEPS AWAY FROM YOUR PERFECT CAR </p>
       <thead>
-        <tr class="element">
+        <tr>
           <!-- Column headers -->
-          <th>Is the quiz free to take?</th>
-          <th>How accurate are the quiz results?</th>
-          <th>What if I have specific requirements not covered in the quiz?</th>
+          <th><span class="text">First</span><br>COMPLETE THE QUIZ IN A SHORT TIME</th>
+          <th><i class="arrow right"></i></th>
+          <th><span class="text">Second</span> <br> COMPARE THE TOP RESULTS</th>
+          <th><i class="arrow right"></i></th>
+          <th><span class="text">Third</span> <br> BUY THE CAR AT THE BEST PRICE</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr class="element">
+        <tr>
           <!-- Table data -->
           <td>
-           <p>Yes, the quiz is completely free to use. We believe in helping users find their ideal cars without any cost.</p>
+            <img src="Images/checkList.png" alt="Quiz Image">
           </td>
           <td>
-            <p>Our algorithm is designed to provide accurate and relevant results based on your quiz responses. 
-              However, it's always a good idea to consider personal research and test drives for a comprehensive decision.</p>
+            <p class="table-text" style=font-size:25px>Our algorithm scours the database and computes a list of the 10
+              most ideal cars for you
+            </p>
           </td>
           <td>
-            <p>If you have specific requirements that are not covered in the quiz, feel free to contact our support team.
-               We'll do our best to assist you in finding the most suitable car based on your unique needs.</p>
+            <img src="Images/compareResults.png" alt="Compare Image">
+          </td>
+          <td>
+            <p class="table-text" style=font-size:25px>Contact the seller directly and buy the car at the lowest
+              price!</p>
+          </td>
+          <td>
+            <img src="Images/handingKey.png" alt="Buy Image">
           </td>
         </tr>
       </tbody>
     </table>
-    <br><br>
-  
-    <script>
-      
-      window.onload = function () {
-        renderFAQTable();
-      };
-  
-      
-    </script>
+
+
+    <h3>At FIT PERFECT CAR, our goal is to make sure that you get your perfect car <h3>
+
+        <!-- Information about car choices -->
+        <table>
+          <tbody>
+            <tr class="element">
+              <td style="width: 60%;">
+                <p class="table-text2">We are aware that there are a wide variety of cars available today at various
+                  price
+                  points, and with so many options,
+                  it is easy to become lost! Particularly if it's their first time buying a car,
+                  a lot of first-time buyers end up regretting their choice of vehicle.</p>
+              </td>
+              <td><img src="Images/choice.png" alt="choice"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br><br>
+
+        <!-- Algorithm utilization information -->
+        <table>
+          <tbody>
+            <tr class="element">
+              <td style="width: 60%;">
+                <p class="table-text2">
+                  We endeavor to make sure that the customer gets a car that they will love and be glad they bought
+                  and we do EXACTLY that by utilizing our algorithm which uses the results of a questionnaire to give
+                  you a list of the 10 most suitable cars based on your preferences.
+                </p>
+              </td>
+              <td><img src="Images/list.png" alt="list"></td>
+            </tr>
+          </tbody>
+        </table>
 
 
 
-  
+        <!-- frequantly asked questions -->
+        <h3 style="font-size: 50px; color:rgb(168, 210, 255);">Frequently Asked Questions<br> (FAQs) <h3>
 
-          <!-- Start the journey with a quiz -->
-          <table class="table2" style="width: 100%;">
-            <tbody>
-              <tr class="element" >
-                <td style="width: 60%;">
-                  <p class="table-text2">Start Your journey To Find The Perfect Car For You <br>
-                    Click the quiz image to start --> </p>
-                </td>
-                <td> <a href="match.html"> <img src="Images/quiz.webp" alt="quiz"></a> </td>
-              </tr>
-              <tr>
-              </tr>
-            </tbody>
-          </table>
-  
+
+            <div id="faqContainer"></div>
+            <!-- Table section -->
+            <table>
+              <!-- Table header -->
+              <thead>
+                <tr class="element">
+                  <!-- Column headers -->
+                  <th>Is the quiz free to take?</th>
+                  <th>How accurate are the quiz results?</th>
+                  <th>What if I have specific requirements not covered in the quiz?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="element">
+                  <!-- Table data -->
+                  <td>
+                    <p>Yes, the quiz is completely free to use. We believe in helping users find their ideal cars
+                      without any cost.</p>
+                  </td>
+                  <td>
+                    <p>Our algorithm is designed to provide accurate and relevant results based on your quiz responses.
+                      However, it's always a good idea to consider personal research and test drives for a comprehensive
+                      decision.</p>
+                  </td>
+                  <td>
+                    <p>If you have specific requirements that are not covered in the quiz, feel free to contact our
+                      support team.
+                      We'll do our best to assist you in finding the most suitable car based on your unique needs.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br><br>
+
+            <script>
+
+              window.onload = function () {
+                renderFAQTable();
+              };
+
+
+            </script>
+
+
+
+
+
+            <!-- Start the journey with a quiz -->
+            <table class="table2" style="width: 100%;">
+              <tbody>
+                <tr class="element">
+                  <td style="width: 60%;">
+                    <p class="table-text2">Start Your journey To Find The Perfect Car For You <br>
+                      Click the quiz image to start --> </p>
+                  </td>
+                  <td> <a href="match.html"> <img src="Images/quiz.webp" alt="quiz"></a> </td>
+                </tr>
+                <tr>
+                </tr>
+              </tbody>
+            </table>
+
 
             <!-- Questionnaire -->
             <table class="table2" style="width: 100%;">
               <tbody>
-                <tr class="element" >
+                <tr class="element">
                   <td style="width: 60%;">
-                    <p class="table-text2">Explore our interactive Questionnaire page designed to gather valuable feedback from our customers. 
-                      Dive into the user-friendly questionnaire to share your thoughts and help us enhance our services. Your feedback matters!" --> </p>
+                    <p class="table-text2">Explore our interactive Questionnaire page designed to gather valuable
+                      feedback from our customers.
+                      Dive into the user-friendly questionnaire to share your thoughts and help us enhance our services.
+                      Your feedback matters!" --> </p>
                   </td>
                   <td> <a href="questionnaire.html"> <img src="Images/questionnaire.png" alt="questionnaire"></a> </td>
                 </tr>
@@ -301,80 +296,85 @@
                 </tr>
               </tbody>
             </table>
-   
-
-              <!-- calculation -->
-              <table class="table2" style="width: 100%;">
-                <tbody>
-                  <tr class="element" >
-                    <td style="width: 60%;">
-                      <p class="table-text2">Explore our website's dynamic features, including a specialized calculation page powered by JavaScript.
-                         This innovative tool enhances user experience by offering a unique bill-calculator functionality.
-                          Seamlessly integrated with the website's theme, the calculation page aligns with our objectives, providing a rationale for its presence.
-                           The page employs various mathematical operators and incorporates conditional statements, such as if-else statements, to cater to diverse user interactions. <br>
-                        Click the quiz image to start --> </p>
-                    </td>
-                    <td> <a href="calculation.html"> <img src="Images/calculation.png" alt="calculation"></a> </td>
-                  </tr>
-                  <tr>
-                  </tr>
-                </tbody>
-              </table>
-      
 
 
-                <!-- funpage -->
-                <table class="table2" style="width: 100%;">
-                  <tbody>
-                    <tr class="element" >
-                      <td style="width: 60%;">
-                        <p class="table-text2">Explore the interactive and entertaining side of our website with our latest addition 
-                          'funpage' Engage with dynamic HTML elements as you enjoy games and activities related to our site's theme.  <br>
-                          Click the quiz image to start --> </p>
-                      </td>
-                      <td> <a href="funpage.html"> <img src="Images/funpage.png" alt="funpage"></a> </td>
-                    </tr>
-                    <tr>
-                    </tr>
-                  </tbody>
-                </table>
-        
+            <!-- calculation -->
+            <table class="table2" style="width: 100%;">
+              <tbody>
+                <tr class="element">
+                  <td style="width: 60%;">
+                    <p class="table-text2">Explore our website's dynamic features, including a specialized calculation
+                      page powered by JavaScript.
+                      This innovative tool enhances user experience by offering a unique bill-calculator functionality.
+                      Seamlessly integrated with the website's theme, the calculation page aligns with our objectives,
+                      providing a rationale for its presence.
+                      The page employs various mathematical operators and incorporates conditional statements, such as
+                      if-else statements, to cater to diverse user interactions. <br>
+                      Click the quiz image to start --> </p>
+                  </td>
+                  <td> <a href="calculation.html"> <img src="Images/calculation.png" alt="calculation"></a> </td>
+                </tr>
+                <tr>
+                </tr>
+              </tbody>
+            </table>
 
 
-      </div>
+
+            <!-- funpage -->
+            <table class="table2" style="width: 100%;">
+              <tbody>
+                <tr class="element">
+                  <td style="width: 60%;">
+                    <p class="table-text2">Explore the interactive and entertaining side of our website with our latest
+                      addition
+                      'funpage' Engage with dynamic HTML elements as you enjoy games and activities related to our
+                      site's theme. <br>
+                      Click the quiz image to start --> </p>
+                  </td>
+                  <td> <a href="funpage.html"> <img src="Images/funpage.png" alt="funpage"></a> </td>
+                </tr>
+                <tr>
+                </tr>
+              </tbody>
+            </table>
+
+
+
+  </div>
 
   <div class="banner-container">
     <p id="welcomeMessage"></p>
   </div>
   <script>   updateWelcomeMessage();  </script>
 
- 
+
   <div id="gallery">
     <img class="photo visible" src="Images/blackCar.jpg" alt="Photo 1" style="border-radius: 10px;">
     <img class="photo " src="Images/Car2.jpg" alt="Photo 2" style="border-radius: 10px;">
     <img class="photo " src="Images/Car4.jpg" alt="Photo 3" style="border-radius: 10px;">
   </div>
-  
+
   <script>
     const photos = document.querySelectorAll('.photo');
     let currentPhotoIndex = 0;
-  
+
     function showNextPhoto() {
       // Move the current photo out of view
       photos[currentPhotoIndex].classList.remove('visible');
-  
+
       // Move to the next photo
       currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
-  
+
       // Move the next photo into view
       photos[currentPhotoIndex].classList.add('visible');
     }
-  
+
     // Set an interval to switch photos every 3 seconds
     setInterval(showNextPhoto, 3000);
   </script>
-  
- 
+
+
 
 
 

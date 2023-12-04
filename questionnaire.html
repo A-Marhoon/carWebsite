@@ -12,117 +12,139 @@
   <!-- Include external CSS file -->
   <link rel="stylesheet" type="text/css" href="style.css">
 
+  <script src="java.js"></script>
   <style>
     form {
       padding: 20px;
     }
+
+    #btn {
+      background-color: rgb(87, 0, 108);
+      border: none;
+      color: white;
+      text-align: center;
+      opacity: 0.9;
+      transition: 0.4s;
+      
+    }
+    table > tbody > tr > td {
+      padding: 50px;
+    }
+   
   </style>
 
-	<script src="formValidationScript.js" defer></script>
+  
 </head>
 
 <body>
   <div id="contant">
-    <!-- Navbar -->
+    <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-design">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="Images/logoIcon.png" alt="logo"
-            style="height: 25px; width:25px "></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center">
-          <div class="navbar-nav">
-              <a class="nav-link" aria-current="page" href="index.html">Home</a>
-              <a class="nav-link" href="match.html">Match Making</a>
-              <a class="nav-link" href="community.html">Community</a>
-              <a class="nav-link" href="about.html">About Us</a>  
-              <a class="nav-link" href="contact.html">Contact Us</a>
-              <a class="nav-link" href="questionnaire.html">Questionnaire</a>
-              <a class="nav-link" href="funpage.html">Funpage</a>
-              <a class="nav-link" href="calculation.html">Calculation</a>
+          <!-- Logo in the navbar -->
+          <a class="navbar-brand" href="index.html"><img src="Images/logoIcon.png" alt="logo"
+                  style="height: 25px; width:25px "></a>
+          <!-- Navbar toggler for responsive design -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse justify-content-center">
+              <div class="navbar-nav">
+                  <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                  <a class="nav-link" href="match.html">Match Making</a>
+                  <a class="nav-link" href="community.html">Community</a>
+                  <a class="nav-link" href="about.html">About Us</a>
+                  <a class="nav-link" href="contact.html">Contact Us</a>
+                  <a class="nav-link" href="questionnaire.html">Questionnaire</a>
+                  <a class="nav-link" href="funpage.html">Funpage</a>
+                  <a class="nav-link" href="calculation.html">Calculation</a>
+                  <a class="nav-link" href="calculation_Angular.html">Calculation-Angular</a>
+              </div>
           </div>
-        </div>
       </div>
-    </nav>
+  </nav>
 	
     <h1 style="color:aliceblue; font-weight:bolder;">Questionaire</h1>
     <div class="h_line"></div>
 	<h3 style="color:aliceblue; font-weight:bolder;">Please answer this Questionaire to help us improve the services we provide you</h3>
     <!-- This is the form for the Questionaire-->
     <div style="margin: 250px;">
-      <form id="form2" action="/" method="GET">
-        <h2 style="text-align: center; color:#b56de9">How satisfied are you with our services today?</h2>
+      <form id="form2" action="https://httpbin.org/get" method="get">
+        <h2 style="text-align: center; color:#6de9db">How satisfied are you with our services today?</h2>
 		<br>
 		<div class="text-center"> <!--  Center aligns the following text-->
 			<div class="btn-group" role="group"> <!--  Radio buttons for user satisfaction -->
 				<input type="radio" name="satisfaction" class="btn-check" id="radioBtn1">
-				<label class="btn btn-outline-danger" for="radioBtn1" style="font-weight:bolder;">Extremely Dissatisfied</label>
+				<label class="btn btn-outline-danger" for="radioBtn1" style="font-weight:bolder; font-size:larger">Extremely Dissatisfied</label>
 
 				<input type="radio" name="satisfaction" class="btn-check" id="radioBtn2">
-				<label class="btn btn-outline-danger" for="radioBtn2" style="font-weight:bolder;">Dissatisfied</label>
+				<label class="btn btn-outline-danger" for="radioBtn2" style="font-weight:bolder; font-size:larger">Dissatisfied</label>
 
 				<input type="radio" name="satisfaction" class="btn-check" id="radioBtn3">
-				<label class="btn btn-outline-secondary" for="radioBtn3" style="font-weight:bolder;">Indiferrent</label>
+				<label class="btn btn-outline-secondary" for="radioBtn3" style="font-weight:bolder; font-size:larger">Indiferrent</label>
 				
 				<input type="radio" name="satisfaction" class="btn-check" id="radioBtn4">
-				<label class="btn btn-outline-success" for="radioBtn4" style="font-weight:bolder;">Satisfied</label>
+				<label class="btn btn-outline-success" for="radioBtn4" style="font-weight:bolder; font-size:larger">Satisfied</label>
 				
 				<input type="radio" name="satisfaction" class="btn-check" id="radioBtn5">
-				<label class="btn btn-outline-success" for="radioBtn5" style="font-weight:bolder;">Extremely Satisfied</label>
+				<label class="btn btn-outline-success" for="radioBtn5" style="font-weight:bolder; font-size:larger">Extremely Satisfied</label>
 			</div>
 		<br><br>
 		<!-- Purpose of visit to website -->
-		<h2 style="text-align: center; color:#b56de9">What do you hope to acheive with your visit today? (check at least one but not all)</h2> 
+		<h2 style="text-align: center; color:#6de9db">What do you hope to acheive with your visit today? (check at least one but not all)</h2> 
 		<div id="error"><p></p></div>
 		<div id="error1" style="display:none; color:red;"><p>pickone but not all</p></div>
 		
 		<div class="form-check mb-3">
 			<table>
 				<tr>
-					<td><input class="form-check-input" type="checkbox" id="checkbox1"  name="purpose">
-					<label class="form-check-label" for="checkbox1">Find my ideal car</label> </td>
+					<td><input class="form-check-input" type="checkbox" id="checkbox1"  name="purpose"> 
+					<label class="form-check-label" for="checkbox1" style="font-size: 30px; margin: 10px">Find my ideal car</label> </td>
 					
 					<td><input class="form-check-input" type="checkbox" id="checkbox2"  name="purpose">
-					<label class="form-check-label" for="checkbox2">Interact with the community of perfectFit</label> </td>
+					<label class="form-check-label" for="checkbox2" style="font-size: 30px; ">Interact with the community of perfectFit</label> </td>
 
-					<td><input class="form-check-input" type="checkbox" id="checkbox3"  name="purpose">
-					<label class="form-check-label" for="checkbox3">Find my ideal car</label> </td>
+					<td><input class="form-check-input" type="checkbox" id="checkbox3"  name="purpose"> 
+					<label class="form-check-label" for="checkbox3" style="font-size: 30px;">Get personalized advice from car experts</label> </td>
 					
 					<td><input class="form-check-input" type="checkbox" id="checkbox4"  name="purpose">
-					<label class="form-check-label" for="checkbox4">Interact with the community of perfectFit</label> </td>
+					<label class="form-check-label" for="checkbox4" style="font-size: 30px;">Access enhanced search and reviews</label> </td>
 				</tr>
+        
 			</table>
 		</div>
 		<br><br>
 		  <div class="form-group"> <!-- Why us rather than competitor -->
-			<label for="textArea1"><h2 style="text-align: center; color:#b56de9">Why did you use our services rather than our competitors? (minimum of 10 words and maximum of 200 words)</h2></label><br><br>
+			<label for="textArea1"><h2 style="text-align: center; color:#6de9db">Why did you use our services rather than our competitors? (minimum of 10 words and maximum of 200 words)</h2></label><br><br>
 			<div id="error2" style="display:none; color:red;">Less than 200 words please, more than 10 words please</div>
 			<textarea class="form-control" id="textArea1" rows="3"></textarea><br><br>
 		</div>
-			<h2 style="text-align: center; color:#b56de9">How did you find out about our service ? (pick atleast one)</h2> <br>
+			<h2 style="text-align: center; color:#6de9db">How did you find out about our service ? (pick atleast one)</h2> <br>
 			<div id="error3" style="display:none; color:red;"> pick atleast one </div>
-			<div class="btn-group" role="group"> <!--  How did you find out about website -->
-				<input type="radio" name="howFind" class="btn-check" id="radioBtn6">
-				<label class="btn btn-outline-primary" for="radioBtn6" style="font-weight:bolder;">Word of mouth</label>
-
-				<input type="radio" name="howFind" class="btn-check" id="radioBtn7">
-				<label class="btn btn-outline-primary" for="radioBtn7" style="font-weight:bolder;">Advertisment</label>
-
-				<input type="radio" name="howFind" class="btn-check" id="radioBtn8">
-				<label class="btn btn-outline-primary" for="radioBtn8" style="font-weight:bolder;">Google or other search engines</label>
-				
-				<input type="radio" name="howFind" class="btn-check" id="radioBtn9">
-				<label class="btn btn-outline-primary" for="radioBtn9" style="font-weight:bolder;">Referral</label>
-				
-				<input type="radio" name="howFind" class="btn-check" id="radioBtn10">
-				<label class="btn btn-outline-primary" for="radioBtn10" style="font-weight:bolder;">Other (less than 12 words atleast one word): <div id="error4" style="display:none; color:red;"> less than 12 words please and atleast one word</div>
-				<textarea class="form-control" id="textArea2" rows="3"></textarea>
-				</label>
-			</div>
+      <div class="btn-group" role="group" id="btn">
+        <input type="radio" name="howFind" class="btn-check" id="radioBtn6">
+        <label class="btn btn-outline-info  " for="radioBtn6" style="font-weight: bolder; font-size: larger">Word of mouth</label>
+    
+        <input type="radio" name="howFind" class="btn-check" id="radioBtn7">
+        <label class="btn btn-outline-info" for="radioBtn7" style="font-weight: bolder; font-size: larger">Advertisement</label>
+    
+        <input type="radio" name="howFind" class="btn-check" id="radioBtn8">
+        <label class="btn btn-outline-info" for="radioBtn8" style="font-weight: bolder; font-size: larger">Google or other search engines</label>
+    
+        <input type="radio" name="howFind" class="btn-check" id="radioBtn9">
+        <label class="btn btn-outline-info" for="radioBtn9" style="font-weight: bolder; font-size: larger">Referral</label>
+    
+        <input type="radio" name="howFind" class="btn-check" id="radioBtn10">
+        <label class="btn btn-outline-info" for="radioBtn10" style="font-weight: bolder; font-size: larger">Other (less than 12 words, at least one word):
+            <div id="error4" style="display: none; color: red;">Less than 12 words please and at least one word</div>
+            <textarea class="form-control" id="textArea2" rows="3"></textarea>
+        </label>
+    </div>
+    
 		</div> <br><br>
-        <button class="button-form" type="submit">Submit</button>
+        <button class="button-form" type="submit" >Submit</button>
       </form>
       <br><br><br>
 
@@ -186,5 +208,7 @@
 
 
 </body>
+
+
 
 </html>

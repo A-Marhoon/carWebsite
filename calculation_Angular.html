@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="carCalculatorApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Car Fit - Bill Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="images/logoIcon.png">
+    <!-- Include AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+     <!-- Include external CSS file -->
+     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Additional styles specific to the calculation page */
+        form {
+            max-width: 900px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        input,
+        button {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .result-container {
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Add this CSS for styling the image container */
+        .image-container {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body ng-controller="CarCalculatorController">
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-design">
+        <div class="container-fluid">
+            <!-- Logo in the navbar -->
+            <a class="navbar-brand" href="index.html"><img src="Images/logoIcon.png" alt="logo"
+                    style="height: 25px; width:25px "></a>
+            <!-- Navbar toggler for responsive design -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse justify-content-center">
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link" href="match.html">Match Making</a>
+                    <a class="nav-link" href="community.html">Community</a>
+                    <a class="nav-link" href="about.html">About Us</a>
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                    <a class="nav-link" href="questionnaire.html">Questionnaire</a>
+                    <a class="nav-link" href="funpage.html">Funpage</a>
+                    <a class="nav-link" href="calculation.html">Calculation</a>
+                    <a class="nav-link" href="calculation_Angular.html">Calculation-Angular</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <h1 style="color:aliceblue; font-weight:bolder;">Find Your Dream Car</h1>
+
+    <div class="h_line"></div>
+
+    <!-- Registration Section -->
+    <div id="carFinderFormContainer" class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card-body py-md-8">
+                    <!-- Car Finder Form -->
+                    <form id="carFinderForm">
+                        <!-- Age Input -->
+                        <div class="form-group">
+                            <label for="age">Age (18 - 100) :</label>
+                            <input type="number" class="form-control" ng-model="formData.age"
+                                placeholder="Enter your age" required>
+                        </div>
+
+                        <!-- Monthly Salary Input -->
+                        <div class="form-group">
+                            <label for="salary">Monthly Salary (OMR) :</label>
+                            <input type="number" class="form-control" ng-model="formData.salary"
+                                placeholder="Enter your monthly salary" required>
+                        </div>
+
+                        <!-- Lifestyle Input -->
+                        <div class="form-group">
+                            <label for="lifestyle">Lifestyle [adventure, city, desert] : </label>
+                            <input type="text" class="form-control" ng-model="formData.lifestyle"
+                                placeholder="Enter your lifestyle" required>
+                        </div>
+
+                        <!-- Preferred Car Type -->
+                        <div class="form-group">
+                            <label for="carType">Preferred Car Type :</label>
+                            <select class="form-control" ng-model="formData.carType" name="carType">
+                                <option value="Convertible">Convertible</option>
+                                <option value="Minivan">Minivan</option>
+                                <option value="sports">Sports Car</option>
+                                <option value="Pickup truck">Pickup truck</option>
+                                <!-- Add more options based on user preferences -->
+                            </select>
+                        </div>
+
+                        <!-- Financing Options -->
+                        <div class="form-group">
+                            <label for="financing">Financing Options :</label>
+                            <select class="form-control" ng-model="formData.financing" name="financing">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <!-- Buttons for Submit and Reset -->
+                        <div class="d-flex flex-row align-items-center justify-content-between">
+                            <button class="btn btn-primary" type="button" ng-click="calculatePriceInterval()">Find
+                                Price Interval</button>
+                            <button class="btn btn-secondary" type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="h_line"></div>
+
+    <!-- Container for displaying the result (initially hidden) -->
+    <div id="priceResult" class="result-container" ng-show="showResult">
+        <p ng-show="ageMessage">{{ ageMessage }}</p>
+        <h1 ng-show="lowerInterval || upperInterval">Your estimated price interval is {{ lowerInterval }} OMR - {{ upperInterval }} OMR.</h1>
+        <div class="image-container">
+            <img ng-repeat="imageUrl in imageUrls" ng-src="{{ imageUrl }}" alt="Car Image" class="car-image">
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <div id="footer">
+        <!-- Footer content -->
+        <div class="footer bg-dark">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Logo and Social media icons on the left -->
+                <div class="d-flex align-items-center">
+                    <!-- Logo placeholder -->
+                    <div class="logo mr-2">
+                        <img src="Images/logo.png" alt="Logo">
+                        <p>
+                            Perfect Car Fit, where your dream car awaits!
+                        </p>
+                        <!-- Contact information -->
+                        <div class="footer-contact">
+                            <p>perfectcarfit@gmail.com</p>
+                            <p>+968 9123 4567</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email subscription form on the right -->
+                <div class="email-form mb-3">
+                    <form action="mailto:s133996@student.squ.edu" method="post">
+                        <div class="input-">
+                            <p> Join Our Newsletter </p>
+                            <!-- Email input field -->
+                            <input type="email" class="form-control" placeholder="Email" aria-label="Email"
+                                aria-describedby="subscribeBtn" required> <br>
+                            <!-- Subscribe button -->
+                            <button class="btn btn-primary" type="submit" id="subscribeBtn">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright text -->
+            <div class="container text-center py-1">
+                <p>&copy; 2023 Perfect Car Fit. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AngularJS Controller -->
+    <script>
+        // Define the AngularJS app
+        var app = angular.module('carCalculatorApp', []);
+
+        // Define the AngularJS controller
+        app.controller('CarCalculatorController', function ($scope) {
+            // Initialize scope variables
+            $scope.ageMessage = '';
+            $scope.lowerInterval = 0;
+            $scope.upperInterval = 0;
+            $scope.imageUrls = [];
+            $scope.showResult = false; // Initially hide the result container
+
+            // Form data object
+            $scope.formData = {
+                age: '',
+                salary: '',
+                lifestyle: '',
+                carType: '',
+                financing: ''
+            };
+
+            // Function to calculate price interval
+            $scope.calculatePriceInterval = function () {
+                // Get user inputs from the form using AngularJS
+                const age = parseInt($scope.formData.age);
+                const monthlySalary = parseInt($scope.formData.salary);
+                const lifestyle = $scope.formData.lifestyle.toLowerCase();
+                const carType = $scope.formData.carType.toLowerCase();
+                const financing = $scope.formData.financing.toLowerCase();
+
+                // Validate input fields
+                if (!age || !monthlySalary || !lifestyle || !carType || !financing) {
+                    alert("Please fill out all the fields before calculating the price interval.");
+                    return;
+                }
+
+                // Validate age input
+                if (age < 18 || age > 100) {
+                    alert('Please enter a valid age between 18 and 100.');
+                    return;
+                }
+
+                // Calculate base price based on user inputs
+                let basePrice = 2000;
+
+                // Adjust base price based on age
+                if (age >= 60) {
+                    basePrice += 10000; // Adding 5000 OMR for customers over 60
+                }
+
+                // Adjust base price based on lifestyle
+                switch (lifestyle) {
+                    case 'adventure':
+                        basePrice += 2000;
+                        break;
+                    case 'city':
+                        basePrice += 1000;
+                        break;
+                    case 'desert':
+                        basePrice += 2000;
+                        break;
+                    // Add more cases based on your lifestyle categories
+                }
+
+                // Adjust base price based on car type
+                switch (carType) {
+                    case 'convertible':
+                        basePrice += 3000;
+                        break;
+                    case 'minivan':
+                        basePrice += 5000;
+                        break;
+                    case 'sports':
+                        basePrice += 7000;
+                        break;
+                    case 'pickup truck':
+                        basePrice += 5000;
+                        break;
+                    // Add more cases based on your car type categories
+                }
+
+                // Adjust base price based on financing
+                if (financing === 'yes') {
+                    basePrice += 3000; // Adding 3000 OMR for financed cars
+                }
+
+                // Adjust base price based on monthly salary
+                basePrice += monthlySalary * 0.5; // Add 20% of monthly salary to the base price
+
+                // Calculate price intervals
+                $scope.lowerInterval = basePrice - (basePrice * 0.1); // Subtract 10% of base price
+                $scope.upperInterval = basePrice + (basePrice * 0.1); // Add 10% of base price
+
+                // Display the result
+                $scope.displayCarImages(carType);
+                $scope.showResult = true; // Set showResult to true to display the result container
+            };
+
+            // Function to display car images
+            $scope.displayCarImages = function (carType) {
+                $scope.imageUrls = [];
+
+                switch (carType) {
+                    case 'convertible':
+                        $scope.imageUrls = ['Images/convertible1.webp', 'Images/convertible2.avif', 'Images/convertible3.jpg'];
+                        break;
+                    case 'minivan':
+                        $scope.imageUrls = ['Images/minivan1.avif', 'Images/minivan2.jpg', 'Images/minivan3.jpg'];
+                        break;
+                    case 'sports':
+                        $scope.imageUrls = ['Images/sportCar1.webp', 'Images/sportCar2.jpg', 'Images/sportCar3.jpg'];
+                        break;
+                    case 'pickup truck':
+                        $scope.imageUrls = ['Images/pickup1.jpg', 'Images/pickup2.webp', 'Images/pickup3.jpg'];
+                        break;
+                    // Add more cases based on your car type categories
+                }
+
+                $scope.ageMessage = ''; // Clear age message
+                $scope.scrollToResult();
+            };
+
+            // Function to scroll to the result container
+            $scope.scrollToResult = function () {
+                var element = document.getElementById('priceResult');
+                element.scrollIntoView({ behavior: 'smooth' });
+            };
+        });
+    </script>
+
+    <!-- Bootstrap JS (similar to other pages) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

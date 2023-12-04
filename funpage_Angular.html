@@ -1,0 +1,154 @@
+<!-- funpage.component.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Page title -->
+  <title>Fun Page</title>
+  <!-- Bootstrap stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- Custom styles -->
+  <link type="text/css" rel="stylesheet" href="style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/logoIcon.png">
+  <!-- Additional styles -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .game {
+      width: 40em;
+      height: 200px;
+      border: 2px solid rgb(164, 38, 195);
+      margin: auto;
+    }
+
+    #character {
+      width: 40px;
+      height: 40px;
+      background-image: url("Images/run.png");
+      background-repeat: no-repeat;
+      position: relative;
+      top: 160px;
+    }
+
+    .animate {
+      animation: jump 0.3s linear;
+    }
+
+    @keyframes jump {
+      0% {
+        top: 150px;
+      }
+
+      30% {
+        top: 100px;
+      }
+
+      70% {
+        top: 100px;
+      }
+
+      100% {
+        top: 150px;
+      }
+    }
+
+    #block {
+      width: 30px;
+      height: 30px;
+      background-image: url("Images/yellow_car.png");
+      background-repeat: no-repeat;
+      position: relative;
+      top: 130px;
+      left: 500px;
+      animation: block 1s infinite linear;
+    }
+
+    @keyframes block {
+      0% {
+        left: 500px
+      }
+
+      100% {
+        left: -20px
+      }
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 0; /* Fix for the scroll line issue */
+    }
+
+    button {
+      color: #faaadf;
+      background-color: black;
+      width: 5em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Main content container -->
+  <div id="contant">
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-design">
+      <div class="container-fluid">
+        <!-- ... (Same as your existing HTML) ... -->
+      </div>
+    </nav>
+
+    <!-- Content of Fun Page -->
+    <div>
+      <!-- Head -->
+      <div class="image-container">
+        <h1 style="color:aliceblue; font-weight:bolder;">Have Some Fun!</h1> <br>
+        <div class="h_line"></div>
+        <br>
+        <div class="text" style="background-image: linear-gradient(to right, #e6defc, #faaadf);">Jump to avoid the car<br> click the jump button or press <kbd>J</kbd> in your keyboard</div>
+      </div>
+
+      <div class="game">
+        <div id="character" [ngClass]="{ 'animate': isJumping }"></div>
+        <div id="block"></div>
+      </div>
+
+      <p class="text" style="background-image: linear-gradient(to right, #e6defc, #faaadf);">
+        <button id="btnStart" (click)="startGame()">Start Game</button>
+        <button id="btnJ" (click)="jump()"> Jump </button>
+        <br>
+        Timer: <span id="timerSpan">{{ timer }} seconds</span>
+        <br>
+        <div class="text" id="score">Score: <span id="scoreSpan">{{ score }}</span></div>
+        <br>
+      </p>
+
+      <!-- Footer section -->
+      <div id="footer">
+        <!-- ... (Same as your existing HTML) ... -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <!-- Your existing game scripts -->
+  <script>
+    // Your existing game scripts
+  </script>
+
+</body>
+
+</html>

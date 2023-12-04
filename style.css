@@ -286,3 +286,26 @@ textarea {
   background-color: #b8b8b8;
 }
 
+
+
+    td {
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+      animation: fadeIn 4s forwards;
+      /* Animation duration: 2 seconds */
+    }
+
+    th {
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      /* Animation duration: 2 seconds */
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
