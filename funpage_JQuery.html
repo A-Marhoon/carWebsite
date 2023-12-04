@@ -182,84 +182,77 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
-</body>
+
+<!-- jQuery library-->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
 <script>
+
     //scripts for the game
-    var character = document.getElementById("character");
-    var block = document.getElementById("block");
-    var gameRunning = false;
-    block.style.animation = "none";
 
-    function jump(){
-        if(character.classList == "animate" ){return}
-        character.classList.add("animate");
-        setTimeout(function(){
-            character.classList.remove("animate");
-        },300);
-    }
 
-    // start game Function
-    function startGame() {
+    $(document).ready(function () {
+        var character = $("#character");
+        var block = $("#block");
+        var gameRunning = false;
+        block.css("animation", "none");
+
+        //jump function
+        function jump() {
+            if (character.hasClass("animate")) { return }
+            character.addClass("animate");
+            setTimeout(function () {
+                character.removeClass("animate");
+            }, 300);
+        }
+
+        // start game Function
+        $("#btnStart").click(function () {
             // Wait for 2 seconds before starting the game
-            //display countdown befor start the game
+            //display countdown before start the game
             var countdown = 2;
             var countdownInterval = setInterval(function () {
-                document.getElementById("timerSpan").innerHTML = countdown;
+                $("#timerSpan").text(countdown);
                 countdown--;
                 if (countdown < 0) {
                     clearInterval(countdownInterval);
-                    document.getElementById("timerSpan").innerHTML = "";
+                    $("#timerSpan").text("");
                     gameRunning = true;
                     counter = 0;
-                    block.style.animation = "block 1s infinite linear";
-                    
-                    document.getElementById("score").innerHTML = "Score: <span id= scoreSpan></span>";
+                    block.css("animation", "block 1s infinite linear");
+                    $("#score").html("Score: <span id='scoreSpan'></span>");
                     updateScore();
                 }
             }, 1000);
+        });
 
+        // to check if you lose or not
+        var checkDead = setInterval(function () {
+            let characterTop = parseInt(character.css("top"));
+            let blockLeft = parseInt(block.css("left"));
 
-              /*
-            setTimeout(function () {
-                gameRunning = true;
-                counter = 0;
-                block.style.animation = "block 1s infinite linear";
-                document.getElementById("scoreSpan").innerHTML = "0";
-            }, 1000);*/
-      }
+            // game over
+            if (blockLeft < 20 && blockLeft > -20 && characterTop >= 130) {
+                gameRunning = false;
+                block.css("animation", "none");
+                alert("Game Over. score: " + Math.floor(counter / 100));
+                $("#score").html("Score: ");
+            } else {
+                counter++;
+                $("#scoreSpan").text(Math.floor(counter / 100));
+            }
+        }, 10);
 
-    // to check if you lose or not
-    var checkDead = setInterval(function() {
-        let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-        let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-        
-        //game over
-        if(blockLeft<20 && blockLeft>-20 && characterTop>=130){
-            
-          gameRunning = false;
-          
-          block.style.animation = "none";
-            alert("Game Over. score: "+Math.floor(counter/100));
-            
-            document.getElementById("score").innerHTML = "Score: ";
-            
-        }else{
-            counter++;
-            document.getElementById("scoreSpan").innerHTML = Math.floor(counter/100);
-        }
-    }, 10);
+        // press j in keyboard will Jump 
+        $(document).on("keydown", function (e) {
+            if (e.keyCode === 74) {
+                jump();
+            }
+        });
 
-
-
-    // press j or space in keyboard will Jump 
-    //the key Code for j is 74
-    //the key Code for space is 32
-    document.onkeydown = function (e) {
-        var keyCode = e.keyCode;
-        if(keyCode == 74) {
-            jump();
-        }
-    };
-    btnZ.onclick = clicked;
+        $("#btnJ").click(jump);
+    });
 </script>
+</body>
 </html>
