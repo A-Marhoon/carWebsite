@@ -91,19 +91,19 @@ function calculatePriceInterval() {
   const carType = document.getElementById('carType').value.toLowerCase();
   const financing = document.getElementById('financing').value.toLowerCase();
 
-      // Validate input fields
-      if (!age || !monthlySalary || !lifestyle || !carType || !financing) {
-          alert("Please fill out all the fields before calculating the price interval.");
-          return;
-      }
-
-          // Validate age input
-    if (age < 18 || age > 100) {
-      alert('Please enter a valid age between 18 and 100.');
-      ageInput.focus();
-      return;
+  // Validate input fields
+  if (!age || !monthlySalary || !lifestyle || !carType || !financing) {
+    alert("Please fill out all the fields before calculating the price interval.");
+    return;
   }
-      
+
+  // Validate age input
+  if (age < 18 || age > 100) {
+    alert('Please enter a valid age between 18 and 100.');
+    ageInput.focus();
+    return;
+  }
+
 
   // Calculate base price based on user inputs
   let basePrice = 2000;
@@ -113,8 +113,8 @@ function calculatePriceInterval() {
     ageMessage = '<h3>Thank you for using our website! Enjoy your life at this moment.</h3>';
     basePrice += 10000; // Adding 5000 OMR for customers over 60
   }
-  
-  ageMessage ='';
+
+  ageMessage = '';
 
   // Adjust base price based on lifestyle
   switch (lifestyle) {
@@ -132,10 +132,10 @@ function calculatePriceInterval() {
 
   // Adjust base price based on car type
   switch (carType) {
-    case 'sedan':
+    case 'convertible':
       basePrice += 3000;
       break;
-    case 'suv':
+    case 'minivan':
       basePrice += 5000;
       break;
     case 'sports':
@@ -144,23 +144,24 @@ function calculatePriceInterval() {
     case 'Pickup truck':
       basePrice += 5000;
       break;
-    // Add more cases based on your car type categories
+    
   }
 
   // Adjust base price based on financing
   if (financing === 'yes') {
-    basePrice += 3000; // Adding 1000 OMR for financed cars
+    basePrice += 3000; // Adding 3000 OMR for financed cars
   }
 
-    // Adjust base price based on monthly salary
-    basePrice += monthlySalary * 0.5; // Add 20% of monthly salary to the base price
+  // Adjust base price based on monthly salary
+  basePrice += monthlySalary * 0.5; // Add 20% of monthly salary to the base price
 
-  // Calculate price intervals
-  const lowerInterval = basePrice - 2000;
-  const upperInterval = basePrice + 2000;
 
-// Display the result
-displayResult(ageMessage, lowerInterval, upperInterval, carType);
+    // Calculate price intervals
+    const lowerInterval = basePrice - (basePrice * 0.1); // Subtract 10% of base price
+    const upperInterval = basePrice + (basePrice * 0.1); // Add 10% of base price
+
+  // Display the result
+  displayResult(ageMessage, lowerInterval, upperInterval, carType);
 }
 
 // Add this function to your existing JavaScript code
@@ -171,19 +172,19 @@ function displayCarImages(carType) {
   // Define image URLs based on car type
   let imageUrls = [];
   switch (carType) {
-      case 'convertible':
-          imageUrls = ['Images/convertible1.webp', 'Images/convertible2.avif', 'Images/convertible3.jpg'];
-          break;
-      case 'minivan':
-          imageUrls = ['Images/minivan1.avif', 'Images/minivan2.jpg', 'Images/minivan3.jpg'];
-          break;
-      case 'sports':
-          imageUrls = ['Images/sportCar1.webp', 'Images/sportCar2.jpg', 'Images/sportCar3.jpg'];
-          break;
-      case 'pickup truck':
-          imageUrls = ['Images/pickup1.jpg', 'Images/pickup2.webp', 'Images/pickup3.jpg'];
-          break;
-      // Add more cases based on your car type categories
+    case 'convertible':
+      imageUrls = ['Images/convertible1.webp', 'Images/convertible2.avif', 'Images/convertible3.jpg'];
+      break;
+    case 'minivan':
+      imageUrls = ['Images/minivan1.avif', 'Images/minivan2.jpg', 'Images/minivan3.jpg'];
+      break;
+    case 'sports':
+      imageUrls = ['Images/sportCar1.webp', 'Images/sportCar2.jpg', 'Images/sportCar3.jpg'];
+      break;
+    case 'pickup truck':
+      imageUrls = ['Images/pickup1.jpg', 'Images/pickup2.webp', 'Images/pickup3.jpg'];
+      break;
+    // Add more cases based on your car type categories
   }
 
   // Display images side by side
@@ -204,11 +205,11 @@ function displayResult(ageMessage, lowerInterval, upperInterval, carType) {
       <h1>Your estimated price interval is ${lowerInterval} OMR - ${upperInterval} OMR.</h1>`;
 
 
-  
+
 
   // Call the function to display car images
   displayCarImages(carType);
-  
+
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
