@@ -18,128 +18,111 @@
     }
   </style>
 
-
+	<script src="formValidationScript.js" defer></script>
 </head>
 
 <body>
   <div id="contant">
-
-    <!-- Navigation bar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-design">
       <div class="container-fluid">
-        <!-- Logo in the navbar -->
         <a class="navbar-brand" href="index.html"><img src="Images/logoIcon.png" alt="logo"
             style="height: 25px; width:25px "></a>
-        <!-- Navbar toggler for responsive design -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Navbar links -->
         <div class="collapse navbar-collapse justify-content-center">
           <div class="navbar-nav">
-            <a class="nav-link" aria-current="page" href="index.html">Home</a>
-            <a class="nav-link" href="match.html">Match Making</a>
-            <a class="nav-link" href="community.html">Community</a>
-            <a class="nav-link" href="about.html">About Us</a>
-            <a class="nav-link" href="contact.html">Contact Us</a>
-            <a class="nav-link" href="questionnaire.html">Questionnaire</a>
-            <a class="nav-link" href="funpage.html">Funpage</a>
-            <a class="nav-link" href="calculation.html">Calculation</a>
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link" href="match.html">Match Making</a>
+              <a class="nav-link" href="community.html">Community</a>
+              <a class="nav-link" href="about.html">About Us</a>  
+              <a class="nav-link" href="contact.html">Contact Us</a>
+              <a class="nav-link" href="questionnaire.html">Questionnaire</a>
+              <a class="nav-link" href="funpage.html">Funpage</a>
+              <a class="nav-link" href="calculation.html">Calculation</a>
           </div>
         </div>
       </div>
     </nav>
-
-    <!-- Heading and introductory text for the questionnaire -->
-    <h1 style="color:aliceblue; font-weight:bolder;">Questionnaire</h1>
+	
+    <h1 style="color:aliceblue; font-weight:bolder;">Questionaire</h1>
     <div class="h_line"></div>
-    <div class="text">
-      <h3>Please answer this Questionnaire to help us improve the services we provide you</h3>
-    </div>
-
-    <!-- Form for the Questionnaire -->
-    <div class="form" style="margin: 250px;">
-      <div class="text-center">
-      </div>
-      <form action="https://httpbin.org/get" method="get">
-        <!-- Satisfaction rating section -->
+	<h3 style="color:aliceblue; font-weight:bolder;">Please answer this Questionaire to help us improve the services we provide you</h3>
+    <!-- This is the form for the Questionaire-->
+    <div style="margin: 250px;">
+      <form id="form2" action="/" method="GET">
         <h2 style="text-align: center; color:#b56de9">How satisfied are you with our services today?</h2>
-        <br>
-        <div class="text-center"> <!-- Center aligns the following text -->
-          <div class="btn-group" role="group"> <!-- Radio buttons for user satisfaction -->
-            <input type="radio" name="satisfaction" class="btn-check" id="radioBtn1">
-            <label class="btn btn-outline-danger" for="radioBtn1" style="font-weight:bolder;">Extremely Dissatisfied</label>
+		<br>
+		<div class="text-center"> <!--  Center aligns the following text-->
+			<div class="btn-group" role="group"> <!--  Radio buttons for user satisfaction -->
+				<input type="radio" name="satisfaction" class="btn-check" id="radioBtn1">
+				<label class="btn btn-outline-danger" for="radioBtn1" style="font-weight:bolder;">Extremely Dissatisfied</label>
 
-            <input type="radio" name="satisfaction" class="btn-check" id="radioBtn2">
-            <label class="btn btn-outline-danger" for="radioBtn2" style="font-weight:bolder;">Dissatisfied</label>
+				<input type="radio" name="satisfaction" class="btn-check" id="radioBtn2">
+				<label class="btn btn-outline-danger" for="radioBtn2" style="font-weight:bolder;">Dissatisfied</label>
 
-            <input type="radio" name="satisfaction" class="btn-check" id="radioBtn3">
-            <label class="btn btn-outline-secondary" for="radioBtn3" style="font-weight:bolder;">Indifferent</label>
+				<input type="radio" name="satisfaction" class="btn-check" id="radioBtn3">
+				<label class="btn btn-outline-secondary" for="radioBtn3" style="font-weight:bolder;">Indiferrent</label>
+				
+				<input type="radio" name="satisfaction" class="btn-check" id="radioBtn4">
+				<label class="btn btn-outline-success" for="radioBtn4" style="font-weight:bolder;">Satisfied</label>
+				
+				<input type="radio" name="satisfaction" class="btn-check" id="radioBtn5">
+				<label class="btn btn-outline-success" for="radioBtn5" style="font-weight:bolder;">Extremely Satisfied</label>
+			</div>
+		<br><br>
+		<!-- Purpose of visit to website -->
+		<h2 style="text-align: center; color:#b56de9">What do you hope to acheive with your visit today? (check at least one but not all)</h2> 
+		<div id="error"><p></p></div>
+		<div id="error1" style="display:none; color:red;"><p>pickone but not all</p></div>
+		
+		<div class="form-check mb-3">
+			<table>
+				<tr>
+					<td><input class="form-check-input" type="checkbox" id="checkbox1"  name="purpose">
+					<label class="form-check-label" for="checkbox1">Find my ideal car</label> </td>
+					
+					<td><input class="form-check-input" type="checkbox" id="checkbox2"  name="purpose">
+					<label class="form-check-label" for="checkbox2">Interact with the community of perfectFit</label> </td>
 
-            <input type="radio" name="satisfaction" class="btn-check" id="radioBtn4">
-            <label class="btn btn-outline-success" for="radioBtn4" style="font-weight:bolder;">Satisfied</label>
+					<td><input class="form-check-input" type="checkbox" id="checkbox3"  name="purpose">
+					<label class="form-check-label" for="checkbox3">Find my ideal car</label> </td>
+					
+					<td><input class="form-check-input" type="checkbox" id="checkbox4"  name="purpose">
+					<label class="form-check-label" for="checkbox4">Interact with the community of perfectFit</label> </td>
+				</tr>
+			</table>
+		</div>
+		<br><br>
+		  <div class="form-group"> <!-- Why us rather than competitor -->
+			<label for="textArea1"><h2 style="text-align: center; color:#b56de9">Why did you use our services rather than our competitors? (minimum of 10 words and maximum of 200 words)</h2></label><br><br>
+			<div id="error2" style="display:none; color:red;">Less than 200 words please, more than 10 words please</div>
+			<textarea class="form-control" id="textArea1" rows="3"></textarea><br><br>
+		</div>
+			<h2 style="text-align: center; color:#b56de9">How did you find out about our service ? (pick atleast one)</h2> <br>
+			<div id="error3" style="display:none; color:red;"> pick atleast one </div>
+			<div class="btn-group" role="group"> <!--  How did you find out about website -->
+				<input type="radio" name="howFind" class="btn-check" id="radioBtn6">
+				<label class="btn btn-outline-primary" for="radioBtn6" style="font-weight:bolder;">Word of mouth</label>
 
-            <input type="radio" name="satisfaction" class="btn-check" id="radioBtn5">
-            <label class="btn btn-outline-success" for="radioBtn5" style="font-weight:bolder;">Extremely Satisfied</label>
-          </div>
-          <br><br>
+				<input type="radio" name="howFind" class="btn-check" id="radioBtn7">
+				<label class="btn btn-outline-primary" for="radioBtn7" style="font-weight:bolder;">Advertisment</label>
 
-          <!-- Purpose of visit to the website section -->
-          <h2 style="text-align: center; color:#b56de9">What do you hope to achieve with your visit today? (check all
-            that apply)</h2>
-
-          <!-- Checkboxes for purposes -->
-          <div class="form-check mb-4">
-            <table>
-              <tr>
-                <td><input class="form-check-input" type="checkbox" id="checkbox1" name="purpose">
-                  <label class="form-check-label" for="checkbox1" style="font-size: 35px;">Find my ideal car</label> </td>
-
-                <td><input class="form-check-input" type="checkbox" id="checkbox2" name="purpose">
-                  <label class="form-check-label" for="checkbox2">Interact with the community of perfectFit</label> </td>
-
-                <td><input class="form-check-input" type="checkbox" id="checkbox3" name="purpose">
-                  <label class="form-check-label" for="checkbox3">Find my ideal car</label> </td>
-
-                <td><input class="form-check-input" type="checkbox" id="checkbox4" name="purpose">
-                  <label class="form-check-label" for="checkbox4">Interact with the community of perfectFit</label> </td>
-              </tr>
-            </table>
-          </div>
-          <br><br>
-
-          <!-- Textarea for providing reasons for choosing the service -->
-          <div class="form-group"> <!-- Why us rather than competitor -->
-            <label for="textArea1"><h2 style="text-align: center; color:#e9cbff">Why did you use our services rather
-                than our competitors?</h2></label><br><br>
-            <textarea class="form-control" id="textArea1" rows="3"></textarea><br><br>
-          </div>
-
-          <!-- Section for how the user found out about the service -->
-          <h2 style="text-align: center; color:#f2dfff">How did you find out about our service?</h2> <br>
-          <div class="btn-group" role="group"> <!-- How did you find out about the website -->
-            <input type="radio" name="howFind" class="btn-check" id="radioBtn6">
-            <label class="btn btn-outline-primary" for="radioBtn6" style="font-weight:bolder;">Word of mouth</label>
-
-            <input type="radio" name="howFind" class="btn-check" id="radioBtn7">
-            <label class="btn btn-outline-primary" for="radioBtn7" style="font-weight:bolder;">Advertisement</label>
-
-            <input type="radio" name="howFind" class="btn-check" id="radioBtn8">
-            <label class="btn btn-outline-primary" for="radioBtn8" style="font-weight:bolder;">Google or other search
-              engines</label>
-
-            <input type="radio" name="howFind" class="btn-check" id="radioBtn9">
-            <label class="btn btn-outline-primary" for="radioBtn9" style="font-weight:bolder;">Referral</label>
-
-            <input type="radio" name="howFind" class="btn-check" id="radioBtn10">
-            <label class="btn btn-outline-primary" for="radioBtn10" style="font-weight:bolder;">Other:
-              <textarea class="form-control" id="textArea2" rows="3"></textarea>
-            </label>
-          </div>
-        </div> <br><br>
-        <!-- Submit button for the form -->
-        <button class="button-form" type="button" onclick="validateForm()">Submit</button>
+				<input type="radio" name="howFind" class="btn-check" id="radioBtn8">
+				<label class="btn btn-outline-primary" for="radioBtn8" style="font-weight:bolder;">Google or other search engines</label>
+				
+				<input type="radio" name="howFind" class="btn-check" id="radioBtn9">
+				<label class="btn btn-outline-primary" for="radioBtn9" style="font-weight:bolder;">Referral</label>
+				
+				<input type="radio" name="howFind" class="btn-check" id="radioBtn10">
+				<label class="btn btn-outline-primary" for="radioBtn10" style="font-weight:bolder;">Other (less than 12 words atleast one word): <div id="error4" style="display:none; color:red;"> less than 12 words please and atleast one word</div>
+				<textarea class="form-control" id="textArea2" rows="3"></textarea>
+				</label>
+			</div>
+		</div> <br><br>
+        <button class="button-form" type="submit">Submit</button>
       </form>
       <br><br><br>
 
@@ -148,94 +131,17 @@
 
       <!-- Social media icons -->
       <div class="social-icons">
-        <!-- Add social media icons and links here -->
+        <a href="https://www.facebook.com" target="_blank"><img src="Images/facebook.webp" alt="Facebook"></a>
+        <a href="https://www.twitter.com" target="_blank"><img src="Images/x.png" alt="Twitter"></a>
+        <a href="https://www.instagram.com" target="_blank"><img src="Images/instagram.png" alt="Instagram"></a>
+        <!-- Add more social media icons as needed -->
       </div>
     </div>
     <div class="c_line"></div>
+          <p class="text" style="font-weight: bolder; font-style: oblique; color:#b56de9; "><a style="color: #b56de9;"
+              href="mailto: PerfectCarFit@gmail.com">Send Email</a></p>
+        </div>
 
-    <!-- Email link in oblique style -->
-    <p class="text" style="font-weight: bolder; font-style: oblique; color:#b56de9; "><a style="color: #b56de9;"
-        href="mailto: PerfectCarFit@gmail.com">Send Email</a></p>
-  </div>
-
-
-
-  <script>
-    // Function to validate the form
-    function validateForm() {
-      // Validate satisfaction radio buttons
-      var satisfactionRadios = document.getElementsByName('satisfaction');
-      var satisfactionChecked = false;
-  
-      // Loop through each satisfaction radio button
-      for (var i = 0; i < satisfactionRadios.length; i++) {
-        // Check if the current radio button is checked
-        if (satisfactionRadios[i].checked) {
-          satisfactionChecked = true; // Set satisfactionChecked to true if checked
-          break; // Exit the loop since a selection is found
-        }
-      }
-  
-      // If no satisfaction level is selected, show an alert and return false
-      if (!satisfactionChecked) {
-        alert('Please select your satisfaction level');
-        return false;
-      }
-  
-      // Validate purpose checkboxes
-      var purposeCheckboxes = document.getElementsByName('purpose');
-      var purposeChecked = false;
-  
-      // Loop through each purpose checkbox
-      for (var i = 0; i < purposeCheckboxes.length; i++) {
-        // Check if the current checkbox is checked
-        if (purposeCheckboxes[i].checked) {
-          purposeChecked = true; // Set purposeChecked to true if checked
-          break; // Exit the loop since a selection is found
-        }
-      }
-  
-      // If no purpose is selected, show an alert and return false
-      if (!purposeChecked) {
-        alert('Please select at least one purpose');
-        return false;
-      }
-  
-      // Validate textarea for why us rather than competitor
-      var whyUsTextarea = document.getElementById('textArea1').value.trim();
-  
-      // If the textarea is empty, show an alert and return false
-      if (whyUsTextarea === '') {
-        alert('Please provide a reason for choosing our services');
-        return false;
-      }
-  
-      // Validate howFind radio buttons
-      var howFindRadios = document.getElementsByName('howFind');
-      var howFindChecked = false;
-  
-      // Loop through each howFind radio button
-      for (var i = 0; i < howFindRadios.length; i++) {
-        // Check if the current radio button is checked
-        if (howFindRadios[i].checked) {
-          howFindChecked = true; // Set howFindChecked to true if checked
-          break; // Exit the loop since a selection is found
-        }
-      }
-  
-      // If no selection for how the user found the service, show an alert and return false
-      if (!howFindChecked) {
-        alert('Please select how you found out about our service');
-        return false;
-      }
-  
-      // If all validations pass, the form is valid
-      // You can submit the form or perform additional actions here
-      alert('Form submitted successfully!');
-      return true;
-    }
-  </script>
-  
     <!-- Footer -->
     <div id="footer">
       <div class="footer bg-dark">
