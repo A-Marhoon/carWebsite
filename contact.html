@@ -57,24 +57,24 @@
     <h1 style="color:aliceblue; font-weight:bolder;">Contact Us</h1>
     <div class="h_line"></div>
 
-    <!-- This is the form for contact us-->
-    <div class="form" style="margin: 250px;">
-      <div class="left-part">
+ <!-- This is the form for contact us -->
+<div class="form" style="margin: 50px;">
+  <div class="left-part"></div>
+  <form action="contact_handler.php" method="post">
+      <h2 style="text-align: center; color: #b56de9">Contact Us</h2>
+      <div class="info">
+          <input class="fname" type="text" name="full_name" placeholder="Full name">
+          <input type="text" name="email" placeholder="Email">
+          <input type="text" name="phone_number" placeholder="Phone number">
       </div>
-      <form action="mailto:s133996@gmail.com" method="post">
-        <h2 style="text-align: center; color:#b56de9">Contact Us</h2>
-        <div class="info">
-          <input class="fname" type="text" name="name" placeholder="Full name">
-          <input type="text" name="name" placeholder="Email">
-          <input type="text" name="name" placeholder="Phone number">
-        </div>
-        <p>Message</p>
-        <div>
-          <textarea rows="4"></textarea>
-        </div>
-        <button class="button-form" type="submit" href="/">Submit</button>
-      </form>
-      <br><br><br>
+      <p>Message</p>
+      <div>
+          <textarea name="message" rows="4"></textarea>
+      </div>
+      <button class="button-form" type="submit">Submit</button>
+  </form>
+  <br><br><br>
+</div>
 
       <!-- Heading 3 for additional text -->
       <h3 class="text" style="color: aqua;">You Can Also Find Us In</h3>
