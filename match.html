@@ -21,8 +21,8 @@
     body {
       background-color: rgb(91, 91, 91);
       color: white;
+      font-family: 'Poppins', sans-serif; /* Added Google Font */
     }
-
 
     /* Styles for the main heading (h1) */
     h1 {
@@ -58,8 +58,117 @@
       -webkit-background-clip: text;
     }
 
-    
-  </style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* Updated styles for container1 */
+.container1 {
+  width: 100%;
+  max-width: 1000px;
+  margin: 80px auto;
+  background-color: rgba(141, 78, 156, 0.9); /* Updated to light blue */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 50px;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.container1:hover {
+  background-color: rgba(94, 117, 198, 0.9); /* Updated to a darker shade of blue */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Updated styles for quiz title */
+.container1 h3 {
+  font-size: 40px; /* Bigger font size */
+  margin-bottom: 20px;
+  color: #000000; /* Different color for the title */
+}
+
+/* Updated styles for quiz container */
+#quiz {
+  background-color: #8e44ad; /* Updated to purple */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Updated styles for options */
+.options {
+  display: flex;
+  justify-content: space-around; /* Updated to evenly distribute options */
+  align-items: center; /* Center options horizontally */
+  margin-bottom: 20px;
+}
+
+.option {
+  display: flex;
+  flex-direction: column; /* Updated to column layout */
+  align-items: center; /* Center content horizontally */
+  margin-bottom: 10px;
+  font-size: 18px;
+  background-color: #00558e; /* Updated to light blue */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px; /* Set a fixed width for options */
+}
+
+.option input {
+  margin-bottom: 5px; /* Adjusted spacing between text and checkbox */
+}
+
+/* Updated styles for checkbox answers */
+.options label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+  background-color: #007fd3; /* Updated to light blue */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.option label input {
+  margin-right: 5px;
+}
+
+
+/* Animation for buttons */
+/* Animation for buttons and checkboxes */
+.button-form,
+.button,
+#retry,
+#showAnswer,
+.option input {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #9b59b6; /* Updated to a darker shade of purple */
+  color: #ecf0f1; /* Updated to light gray */
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.2s ease-in-out, padding 0.2s ease-in-out;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.button-form:hover,
+.button:hover,
+#retry:hover,
+#showAnswer:hover,
+.option input:hover {
+  background-color: #8e44ad; /* Updated to purple */
+  transform: scale(1.1); /* Bigger scale on hover */
+  padding: 12px 22px; /* Adjusted padding on hover for a visual effect */
+}
+
+
+
+</style>
 </head>
 
 <body>
@@ -134,20 +243,216 @@
         <!-- Yet another horizontal line for styling -->
         <div class="h_line"></div>
 
-        <!-- Element with an image and a button for the quiz -->
-        <table class="element">
-          <tr>
-            <!-- Image column -->
-            <th width="60%" style="margin: 40px"><img src="Images/quiz.webp" alt="Car with advisor"></th>
-            <!-- Column with heading and quiz button -->
-            <th width="40%">
-              <h3>Start the quiz and find the car of your dreams!<br><br> <button type="button" class="button-form">Take
-                  the
-                  quiz</button></h3>
-            </th>
-          </tr>
-        </table>
+       
       </div>
+
+
+      <div class="container1">
+        <h3 style="font-weight: bolder;">Quiz App</h3>
+        <div id="quiz"></div>
+        <div id="result" class="result"></div>
+        <!-- Add the "hidden" class to the buttons -->
+        <button id="submit" class="button">Submit</button>
+        <button id="retry" class="button">Retry</button>
+        <button id="showAnswer" class="button">Show Answer</button>
+
+      </div>
+
+      <div class="h_line"></div>
+
+      <script>
+        const quizData = [
+        {
+          question: 'What features are essential in your dream car?',
+          options: ['Fuel Efficiency', 'High Performance', 'Spacious Interior', 'Advanced Safety Features'],
+        },
+        {
+          question: 'What body style do you prefer in a car?',
+          options: ['Sedan', 'SUV', 'Coupe', 'Hatchback'],
+        },
+        {
+          question: 'How important is technology in your ideal car?',
+          options: ['Essential', 'Important', 'Nice to have', ' Not a priority'],
+        },
+        {
+          question: 'How important is fuel efficiency for you?',
+          options: [' Extremely important', 'Important', ' Not a priority', "Doesn't matter"],
+        },
+        {
+          question: ' How do you prioritize car size?',
+          options: [
+            'Compact',
+            'Midsize',
+            'Full-size',
+            "Doesn't matter",
+          ],
+        },
+        {
+          question: 'How important is off-road capability for you?',
+          options: ['Very important', 'Important', 'Not important', 'Irrelevant'],
+        },
+        {
+          question: 'What is your preferred brand for a dream car?',
+          options: [
+            'Toyota',
+            'BMW',
+            'Tesla',
+            'Honda',
+          ],
+        },
+        {
+          question: 'What color do you prefer for your car?',
+          options: ['Black', 'White', 'Silver', 'Other'],
+        },
+        {
+          question: 'What is your budget range for a new car?',
+          options: [
+            'Under 5,000 OMR',
+            '5,000 - 10,000',
+            '10,000 - 20,000',
+            'Over 20,000',
+          ],
+        },
+        {
+          question: 'What safety features are crucial for you in a car?',
+          options: ['Advanced Driver Assistance Systems (ADAS)', 'Lane Departure Warning', 'Blind Spot Monitoring', 'None of the above'],
+        },
+      ];
+      
+        const quizContainer = document.getElementById('quiz');
+        const resultContainer = document.getElementById('result');
+        const submitButton = document.getElementById('submit');
+        const retryButton = document.getElementById('retry');
+        const showAnswerButton = document.getElementById('showAnswer');
+      
+        let currentQuestion = 0;
+        let userResponses = [];
+      
+        function displayQuestion() {
+          const questionData = quizData[currentQuestion];
+        
+          const questionElement = document.createElement('div');
+          questionElement.className = 'question';
+          questionElement.innerHTML = questionData.question;
+        
+          // Apply styling for bigger and bolder text
+          questionElement.style.fontSize = '24px'; // Adjust the size as needed
+          questionElement.style.fontWeight = 'bolder';
+          questionElement.style.margin = '10px';
+        
+          const optionsElement = document.createElement('div');
+          optionsElement.className = 'options';
+        
+          for (let i = 0; i < questionData.options.length; i++) {
+            const option = document.createElement('label');
+            option.className = 'option';
+        
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = 'quiz';
+            checkbox.value = questionData.options[i];
+        
+            const optionText = document.createTextNode(questionData.options[i]);
+        
+            option.appendChild(checkbox);
+            option.appendChild(optionText);
+            optionsElement.appendChild(option);
+          }
+        
+          quizContainer.innerHTML = '';
+          quizContainer.appendChild(questionElement);
+          quizContainer.appendChild(optionsElement);
+        
+          // Add animation to the question change
+          questionElement.style.opacity = '0';
+          setTimeout(() => {
+            questionElement.style.opacity = '1';
+          }, 100);
+        
+          // Add color style to the question text
+          questionElement.style.color = '#000000'; // Black color
+        }
+        
+      
+        function saveResponse() {
+          const selectedOptions = document.querySelectorAll('input[name="quiz"]:checked');
+      
+          if (selectedOptions.length === 0) {
+            alert('Please choose an answer before submitting.');
+            return;
+          }
+      
+          const response = [];
+          selectedOptions.forEach((option) => {
+            response.push(option.value);
+          });
+          userResponses[currentQuestion] = response;
+          currentQuestion++;
+      
+          if (currentQuestion < quizData.length) {
+            displayQuestion();
+          } else {
+            displayResult();
+          }
+        }
+      
+        submitButton.addEventListener('click', saveResponse);
+        retryButton.addEventListener('click', retryQuiz);
+        showAnswerButton.addEventListener('click', showUserResponses);
+        
+        // Initially hide the "Retry" and "Show Answer" buttons
+        retryButton.style.display = 'none';
+        showAnswerButton.style.display = 'none';
+        
+        function displayResult() {
+          quizContainer.style.display = 'none';
+          submitButton.style.display = 'none';
+          retryButton.style.display = 'inline-block';
+          showAnswerButton.style.display = 'inline-block';
+        }
+        
+        function retryQuiz() {
+          currentQuestion = 0;
+          userResponses = [];
+          quizContainer.style.display = 'block';
+          submitButton.style.display = 'inline-block';
+          retryButton.style.display = 'none';
+          showAnswerButton.style.display = 'none';
+          resultContainer.innerHTML = '';
+          displayQuestion();
+        }
+        
+        function showUserResponses() {
+          quizContainer.style.display = 'none';
+          submitButton.style.display = 'none';
+          retryButton.style.display = 'inline-block';
+          showAnswerButton.style.display = 'none';
+        
+          let userResponsesHtml = '';
+          for (let i = 0; i < userResponses.length; i++) {
+            userResponsesHtml += `
+              <p>
+                <strong>Question:</strong> ${quizData[i].question}<br>
+                <strong>Your Response:</strong> ${userResponses[i].join(', ')}
+              </p>
+            `;
+          }
+        
+          resultContainer.innerHTML = userResponsesHtml;
+        }
+      
+        submitButton.addEventListener('click', saveResponse);
+        retryButton.addEventListener('click', retryQuiz);
+        showAnswerButton.addEventListener('click', showUserResponses);
+      
+        // Initially hide the "Retry" and "Show Answer" buttons
+        retryButton.classList.add('hidden');
+        showAnswerButton.classList.add('hidden');
+      
+        displayQuestion();
+      </script>
+      
+      
 
       <!-- Container for reviews progress -->
       <div class="container mt-5">
