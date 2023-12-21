@@ -200,18 +200,14 @@
     </div>
   </div>
 
-  <!-- Registration Section -->
+<!-- Sign In Section -->
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-11">
-      <h3 class="card-title text-center">Join The Community</h3>
+      <h3 class="card-title text-center">Sign In</h3>
       <div class="card-body py-md-8">
-        <!-- Registration Form -->
-        <form action="process_registration.php" method="post">
-          <div class="form-group">
-            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
-          </div>
-
+        <!-- Sign In Form -->
+        <form action="login.php" method="post">
           <div class="form-group">
             <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
           </div>
@@ -220,23 +216,87 @@
             <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
           </div>
 
-          <div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" id="confirm-password" placeholder="Confirm Password" required>
-          </div>
-
           <!-- Hidden Field to Identify Action -->
-          <input type="hidden" name="action" value="create_account">
+          <input type="hidden" name="action" value="sign_in">
 
-          <!-- Buttons for Login and Account Creation -->
-          <div class="d-flex flex-row align-items-center justify-content-between">
-            <button type="submit" name="login" class="btn btn-primary">Login</button>
-            <button type="submit" name="create_account" class="btn btn-primary">Create Account</button>
+          <!-- Button for Sign In -->
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Sign In</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-11">
+      <h3 class="card-title text-center">Delete you account</h3>
+      <div class="card-body py-md-8">
+ <!-- Account deletion form -->
+ <form method="post" action="delete_account.php">
+  <label for="email"></label>
+  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+
+  <label for="password"></label>
+  <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+
+  <!-- Button for Sign In -->
+  <div class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary">Delete Account</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!-- Registration Section -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-11">
+      <h3 class="card-title text-center">Join The Community</h3>
+      <div class="card-body py-md-8">
+        <!-- Registration Form -->
+        <form action="signup.php" method="post">
+          <div class="form-group">
+            <label for="name"></label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email"></label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password"></label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password_confirmation"></label>
+            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="password confirmation" required>
+          </div>
+
+          <!-- Hidden Field to Identify Action -->
+          <input type="hidden" name="action" value="create_account">
+
+          <!-- Button for Account Creation -->
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Create Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <br><br>
 
   <!-- Image for Community Joining -->
@@ -245,38 +305,39 @@
   <div class="container">
     <!-- Car Information Table -->
     <h3 class="card-title text-center">Add Something to the Community</h3>
-    <form id="carReviewForm">
+    <form id="carReviewForm" action="community_post.php" method="post">
       <br>
-      <input type="text" id="username" class="form-control" placeholder="Username" required>
+      <input type="text" name="username" class="form-control" placeholder="Username" required>
 
-      <input type="text" id="carName" class="form-control" placeholder="Car Name" required>
+      <input type="text" name="carName" class="form-control" placeholder="Car Name" required>
 
-      <input type="text" id="carYear" class="form-control" placeholder="Car Model Year" required>
+      <input type="text" name="carYear" class="form-control" placeholder="Car Model Year" required>
 
-      <textarea id="description" class="form-control" placeholder="Description" required></textarea>
+      <textarea name="description" class="form-control" placeholder="Description" required></textarea>
 
       <label for="carImage">Car Image (Optional):</label>
-      <input type="file" class="form-control" id="carImage" placeholder="Car Image (Optional)">
+      <input type="file" name="carImage" class="form-control" placeholder="Car Image (Optional)">
 
       <label for="type">Type:</label>
       <div class="custom-select" style="width:200px;">
-        <select id="type" required>
-          <option value="review">Review</option>
-          <option value="guide">Guide</option>
-          <option value="tips">Tips</option>
-        </select>
+          <select name="type" required>
+              <option value="review">Review</option>
+              <option value="guide">Guide</option>
+              <option value="tips">Tips</option>
+          </select>
       </div>
       <br>
-      <button class="btn btn-primary" type="button" onclick="submitForm()">Submit</button>
-    </form>
+      <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
 
     <br><br>
 
-    <form id="searchForm">
+    <form id="searchForm" action="community_post.php" method="post">
       <label for="searchCarName" style="padding: 10px; text-align: center; font-size: 40px;">Search by Car Name:</label>
-      <input class="form-control" type="text" id="searchCarName" placeholder="Car Name">
-      <button class="btn btn-primary" type="button" onclick="searchCar()">Search</button>
-    </form>
+      <input class="form-control" type="text" name="searchCarName" id="searchCarName" placeholder="Car Name">
+      <button class="btn btn-primary" type="submit" name="searchCar">Search</button>
+  </form>
+  
   </div>
 
   <table id="carTable" style="margin: 40px">
@@ -432,15 +493,15 @@
           </div>
         </div>
 
-        <!-- Email Form -->
+        <!-- Email subscription form on the right -->
         <div class="email-form mb-3">
-          <form action="mailto:s133996@gmail.com" method="post">
+          <form action="subscribe.php" method="post">
             <div class="input-">
-              <!-- Newsletter Subscription -->
               <p> Join Our Newsletter </p>
-              <input type="email" class="form-control" placeholder="Email" aria-label="Email"
+              <!-- Email input field -->
+              <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email"
                 aria-describedby="subscribeBtn" required> <br>
-              <!-- Subscribe Button -->
+              <!-- Subscribe button -->
               <button class="btn btn-primary" type="submit" id="subscribeBtn">Subscribe</button>
             </div>
           </form>
